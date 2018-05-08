@@ -42,7 +42,7 @@ export default class digitocontrolSS extends Component {
                   <View style={{ borderColor: estilos.Fondo_PRINCIPAL,}}>
                     <Text style={styles.tituloUtilidades}>Nº SEGURIDAD SOCIAL</Text>
                     <View style={{ alignItems: 'center' }}>
-                      <Input style={{textAlign:'center',fontFamily: "Merriweather-Regular",borderBottomColor:'lightgray', borderBottomWidth:0.5, height:40,}}
+                      <Input style={{textAlign:'center',fontFamily: "Merriweather-Regular",borderBottomColor:'lightgray', borderBottomWidth:0.5, height:40, minWidth:130,}}
                         keyboardType="numeric"
                         onChangeText={numSS =>this.props.fnDC(numSS) }
                         maxLength={10} />
@@ -51,7 +51,7 @@ export default class digitocontrolSS extends Component {
             </View>
 
 
-            <View style={{ flex: 1, maxHeight: 70, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL, padding: 15, marginTop: 10 }} >
+            <View style={{ flex: 1, minHeight: 82, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL, padding: 15, marginTop: 10 }} >
               <Text style={[styles.tituloUtilidades, { color: estilos.FondoTituloCabecera_UTILIDADES }]}>DÍGITO CONTROL</Text>
               <Text style={{ fontSize: 16,fontFamily: "Merriweather-Regular", textAlign: 'center', color: 'white', margin: 5, fontWeight: 'bold' }}>{this.props.dc.data || ''}</Text>
             </View>

@@ -69,7 +69,7 @@ export default class digitocontrolCIF extends Component {
                 <View style={{ borderColor: estilos.Fondo_PRINCIPAL, borderBottomWidth: 1 }}>
                   <Text style={styles.tituloUtilidades}>Nº CIF</Text>
                   <View style={{ alignItems: 'center' }}>
-                    <Input style={{ textAlign: 'center',fontFamily: "Merriweather-Regular", borderBottomColor:'lightgray', borderBottomWidth:0.5, height:40, marginBottom:5}}
+                    <Input style={{ textAlign: 'center',fontFamily: "Merriweather-Regular", borderBottomColor:'lightgray', borderBottomWidth:0.5, height:40, minWidth:100, marginBottom:5}}
                       keyboardType="numeric"
                       onChangeText={cif => this._onChangeText_CIF(cif)}
                       maxLength={8} />
@@ -79,9 +79,11 @@ export default class digitocontrolCIF extends Component {
             
             </View>
 
-            <View style={{ flex: 1, maxHeight: 80, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL, padding: 15, marginTop: 20 }} >
+            <View style={{ flex: 1, minHeight: 100, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL, padding: 15, marginTop: 20 }} >
               <Text style={[styles.tituloUtilidades, { color: estilos.FondoTituloCabecera_UTILIDADES }]}>VÁLIDO</Text>
-              <View style={{alignItems:'center', justifyContent:'center'}}>{ this.props.icono.data.icono !=''?  <Icon name={this.props.icono.data.icono} style={{fontWeight: 'bold', color:this.props.icono.data.color, fontSize:50 }}/>:null}</View>
+              <View style={{alignItems:'center', justifyContent:'center', marginTop:10}}>
+                { this.props.icono.data.icono !=''?  <View style={{alignItems:'center', justifyContent:'center',width:40,height:40, borderRadius:20, borderColor:'gray', borderWidth:2, backgroundColor:'transparent'}}><Icon name={this.props.icono.data.icono} style={{fontWeight: 'bold', color:this.props.icono.data.color, fontSize:50}}/></View>:null}
+              </View>
             </View>
 
           </View>

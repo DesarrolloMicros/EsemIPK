@@ -48,7 +48,7 @@ export default class letradni extends Component {
               </Item>
             </View>
 
-            <View style={{ flex: 1, maxHeight: 70, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL, padding: 15, marginTop:10 }} >
+            <View style={{ flex: 1, minHeight: 82, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL, padding: 15, marginTop:10 }} >
                 <Text style={[styles.tituloUtilidades,{color:estilos.FondoTituloCabecera_UTILIDADES}]}>LETRA</Text>
                 <Text style={{ fontSize: 16, textAlign: 'center', color:'white', margin:5, fontWeight: 'bold',fontFamily: "Merriweather-Regular"}}>{this.props.letradni.data}</Text>
             </View>         
