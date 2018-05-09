@@ -28,7 +28,7 @@ export default [
   {
     title: 'Fecha',
     dataIndex: 'Fecha',
-    width: 90,
+    width: 95,
     render: formateoFecha
   },
   {
@@ -46,7 +46,7 @@ export default [
   {
     title: 'TOTAL',
     dataIndex: 'Total',
-    width: 90,
+    width: 95,
     render: formatoMoneda
   },
 ];
