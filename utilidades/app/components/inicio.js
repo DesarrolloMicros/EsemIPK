@@ -67,7 +67,7 @@ export default class inicio extends Component {
 
           </View>  
 
-          <TouchableOpacity onPress={() => this.refs.modalSecretaria.open()} style={{ backgroundColor: estilos.Btn_Secretaria_backgroundColor, flex: 1, padding: 5, margin: 5, alignItems: 'center', borderRadius:5, marginBottom:15 }}>
+          <TouchableOpacity onPress={() => this.refs.modalSecretaria.open()} style={{ backgroundColor: estilos.Btn_Secretaria_backgroundColor, flex: 1, padding: 5, margin:5, alignItems: 'center', borderRadius:5, marginTop:15, marginBottom:15 }}>
             <Text style={{color: '#bd9500', fontFamily: "Merriweather-Regular"}}>Secretaría</Text>
           </TouchableOpacity>
 

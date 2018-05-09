@@ -60,6 +60,13 @@ _onFocus_Importe (){
         this.setState({importe});    
       } 
 }
+
+componentWillReceiveProps(nextProps){
+    if (nextProps.aplazamientoHFB.data.length){
+            alert(nextProps.aplazamientoHFB.data[0].intereses);
+    }
+    
+}
   
   render() {
     
@@ -98,7 +105,7 @@ _onFocus_Importe (){
                             <View style={{ borderColor: estilos.Fondo_PRINCIPAL, borderRightWidth: 1 }}>
                                 <Text style={styles.tituloUtilidades}>FECHA          INICIO</Text>
                                 <View style={{ alignItems:'center'}}>
-                                    <DatePicker style={{width:85}}
+                                    <DatePicker style={{width:90}}
                                         date={this.props.data.date}
                                         showIcon={false}
                                         mode="date"
@@ -131,7 +138,7 @@ _onFocus_Importe (){
                             <View style={{ borderColor: estilos.Fondo_PRINCIPAL,  borderRightWidth: 1 }}>
                                 <Text style={styles.tituloUtilidades}>FECHA          FINAL</Text>
                                 <View style={{ alignItems:'center'}}>
-                                    <DatePicker style={{width:85}}
+                                    <DatePicker style={{width:90}}
                                         date={this.props.data.dateF}
                                         showIcon={false}
                                         mode="date"
@@ -161,7 +168,7 @@ _onFocus_Importe (){
 
                         </View>
 
-                        <View style={{ flex: 1 }}>
+                        <View style={{ flex: 1.2 }}>
                             <View>
                                 <Text style={styles.tituloUtilidades}>PERIODO          VOLUNTARIO</Text>
                                 <View style={{ alignItems:'center', paddingRight:20, marginTop:20,}}>                                
