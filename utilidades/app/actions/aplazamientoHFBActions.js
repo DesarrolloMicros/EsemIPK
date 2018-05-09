@@ -10,8 +10,6 @@ export const get = (importe, FIni, Meses, Voluntario) => dispatch => {
     Meses = Meses || '0';
     Voluntario = Voluntario ||'false';
 
-    //alert('Importe:' + importe  + ', Fini:' + FIni + ', Meses: ' + Meses + ', Voluntario: ' + Voluntario) ;    
-
     return  api.getValoresTabla(importe, FIni, Meses, Voluntario)
             .then((response) => dispatch({type : Types.APLAZAMIENTO_HFB__REQUEST_COMPLETED, payload : response}))
             .then((response)=> {

@@ -60,13 +60,6 @@ _onFocus_Importe (){
         this.setState({importe});    
       } 
 }
-
-componentWillReceiveProps(nextProps){
-    if (nextProps.aplazamientoHFB.data.length){
-            alert(nextProps.aplazamientoHFB.data[0].intereses);
-    }
-    
-}
   
   render() {
     
@@ -83,7 +76,7 @@ componentWillReceiveProps(nextProps){
                     </View>
                 </View>
 
-                <View style={{ flexDirection: 'column', margin: Platform.OS === 'ios' ? 10 : 30, padding:20}} >
+                <View style={{ flexDirection: 'column', margin: Platform.OS === 'ios' ? 5 : 30, padding:20}} >
 
                     <View style={{ flex: 1, maxHeight: 82, backgroundColor: estilos.Fondo_PRINCIPAL, padding: 5 }} >
                         <Text style={styles.tituloUtilidades}>IMPORTE</Text>

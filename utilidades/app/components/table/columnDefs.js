@@ -28,7 +28,7 @@ export default [
   {
     title: 'Fecha',
     dataIndex: 'Fecha',
-    width: 80,
+    width: 90,
     render: formateoFecha
   },
   {
