@@ -5,7 +5,12 @@ import apiLim from './../api/limitesHFB';
 
 export const get = (importe, FIni, Meses, Voluntario) => dispatch => {
 
-    importe =(importe ||'').replace(',','.');
+    importe = (importe || '0').replace(',','.');
+    Fini = FIni || '01012010' 
+    Meses = Meses || '0';
+    Voluntario = Voluntario ||'false';
+
+    alert('Importe:' + importe  + ', Fini:' + FIni + ', Meses: ' + Meses + ', Voluntario: ' + Voluntario) ;    
 
     return  api.getValoresTabla(importe, FIni, Meses, Voluntario)
             .then((response) => dispatch({type : Types.APLAZAMIENTO_HFB__REQUEST_COMPLETED, payload : response}))

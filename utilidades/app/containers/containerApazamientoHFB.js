@@ -36,7 +36,7 @@ class containerApazamientoHFB extends Component {
     }
 
   componentDidMount(){
-    this.props.getAplazamientoHFBA(0, '01-01-2000',0, false);
+    //this.props.getAplazamientoHFBA(0, '01-01-2000',0, false);
   }
 
   ejecutarLlamada(){    
