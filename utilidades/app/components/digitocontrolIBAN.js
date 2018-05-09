@@ -108,7 +108,7 @@ _onChangeText_NumCuenta(d){
             <View style={{ flex: 1, marginTop:10}}>
                   <View style={{ borderColor: estilos.Fondo_PRINCIPAL,}}>
                     <Text style={styles.tituloUtilidades}>Nº CUENTA</Text>
-                    <View style={{ alignItems: 'center' }}>
+                    <View style={{ alignItems: 'center', padding:5 }}>
                       <Input style={{textAlign:'center',fontFamily: "Merriweather-Regular", borderBottomColor:'lightgray', borderBottomWidth:0.5, height:40, minWidth:120, marginBottom:5}}
                         keyboardType="numeric"
                         onChangeText={NumCuenta => this._onChangeText_NumCuenta(NumCuenta)}
@@ -117,7 +117,7 @@ _onChangeText_NumCuenta(d){
                   </View>
             </View>
 
-            <View style={{ flex: 1, minHeight: 82, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL, padding: 15, marginTop: 10 }} >
+            <View style={{ flex: 1, height: 82, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL, padding: 15, marginTop: 10 }} >
               <Text style={[styles.tituloUtilidades, { color: estilos.FondoTituloCabecera_UTILIDADES }]}>CÓDIGO IBAN</Text>
               <Text style={{ fontSize: 16,fontFamily: "Merriweather-Regular", textAlign: 'center', color: 'white', margin: 5, fontWeight: 'bold' }}>{this.props.CodIBAN}</Text>
             </View>

@@ -143,9 +143,9 @@ _onBlur_Total (){
             </View>
           </View>
 
-          <View style={{ flexDirection: 'column', margin:30, padding:10}} >
+          <View style={{ flexDirection: 'column', margin: Platform.OS === 'ios' ? 10 : 30, padding:10}} >
             
-            <View style={{ flex: 1, height: 70, backgroundColor:'#e3e1da', padding:5}} >
+            <View style={{ flex: 1, height: 82, backgroundColor:'#e3e1da', padding:5}} >
               <Text style={styles.tituloUtilidades}>BASE IMPONIBLE</Text>
               <Item >                
                 <Input style={this._Marca_BaseImponible()}
@@ -210,7 +210,7 @@ _onBlur_Total (){
               </View>              
             </View>
 
-            <View style={{ flex: 1, height: 70, marginTop:60, backgroundColor:'#e3e1da', padding:5}} >
+            <View style={{ flex: 1, height: 82, marginTop:60, backgroundColor:'#e3e1da', padding:5}} >
               <Text style={[styles.tituloUtilidades]}>TOTAL</Text>
               <Item >
                 <Input style={this._Marca_Total()}

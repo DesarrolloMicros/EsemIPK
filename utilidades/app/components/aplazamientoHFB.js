@@ -76,9 +76,9 @@ _onFocus_Importe (){
                     </View>
                 </View>
 
-                <View style={{ flexDirection: 'column', margin:30,  padding:20}} >
+                <View style={{ flexDirection: 'column', margin: Platform.OS === 'ios' ? 10 : 30, padding:20}} >
 
-                    <View style={{ flex: 1, maxHeight: 70, backgroundColor: estilos.Fondo_PRINCIPAL, padding: 5 }} >
+                    <View style={{ flex: 1, maxHeight: 82, backgroundColor: estilos.Fondo_PRINCIPAL, padding: 5 }} >
                         <Text style={styles.tituloUtilidades}>IMPORTE</Text>
                         <Item>
                             <Input style={{ fontSize: 16, textAlign: 'center',fontFamily: "Roboto-Regular" }}

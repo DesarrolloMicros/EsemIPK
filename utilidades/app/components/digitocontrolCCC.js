@@ -90,10 +90,10 @@ _onChangeText_NumCuenta(d){
               </View>
               
               <View style={{ flex: 1, marginTop:10}}>
-                  <View style={{ borderColor: estilos.Fondo_PRINCIPAL,}}>
+                  <View style={{borderColor: estilos.Fondo_PRINCIPAL}}>
                     <Text style={styles.tituloUtilidades}>Nº CUENTA</Text>
-                    <View style={{ alignItems: 'center' }}>
-                      <Input style={{textAlign:'center',fontFamily: "Merriweather-Regular", borderBottomColor:'lightgray', borderBottomWidth:0.5, height:40, minWidth:120, marginBottom:5}}
+                    <View style={{ alignItems: 'center', padding:5 }}>
+                      <Input style={{textAlign:'center',fontFamily: "Merriweather-Regular", borderBottomColor:'lightgray', borderBottomWidth:0.5, height:40, minWidth:130, marginBottom:5}}
                         keyboardType="numeric"
                         onChangeText={NumCuenta => this._onChangeText_NumCuenta(NumCuenta)}
                         maxLength={10} />
@@ -101,7 +101,7 @@ _onChangeText_NumCuenta(d){
                   </View>
               </View>
 
-              <View style={{ flex: 1, minHeight: 80, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL, padding: 15, marginTop:10 }} >
+              <View style={{ flex: 1, height: 82, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL, padding: 15, marginTop:10 }} >
                 <Text style={[styles.tituloUtilidades,{color:estilos.FondoTituloCabecera_UTILIDADES,fontFamily: "Merriweather-Regular"}]}>DÍGITO CONTROL</Text>
                 <Text style={{ fontSize: 16, textAlign: 'center', color:'white', margin:5, fontWeight: 'bold',fontFamily: "Merriweather-Regular"}}>{this.props.dc}</Text>
               </View>

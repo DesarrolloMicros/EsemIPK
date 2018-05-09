@@ -144,9 +144,9 @@ export default class calcprestamos extends Component {
                 </View>
             </View>
 
-            <View style={{ flexDirection: 'column', margin:30,  padding:20}} >
+            <View style={{ flexDirection: 'column', margin: Platform.OS === 'ios' ? 10 : 30, padding:20}} >
 
-                <View style={{ flex: 1, maxHeight: 70, backgroundColor:'#e3e1da', padding:5}} >
+                <View style={{ flex: 1, height: 82, backgroundColor:'#e3e1da', padding:5}} >
                     <Text style={styles.tituloUtilidades}>IMPORTE PRÉSTAMO</Text>
                     <Item>                
                         <Input style={{fontSize: 16, textAlign:'center',fontFamily: "Roboto-Regular"}}
@@ -226,7 +226,7 @@ export default class calcprestamos extends Component {
         
                 </View>  
 
-                <View style={{ flex: 1,  marginTop:5}} >
+                <View style={{ flex: 1,  marginTop:10}} >
 
                     <View>
                         <Pie

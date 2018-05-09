@@ -51,7 +51,7 @@ export default class digitocontrolSS extends Component {
             </View>
 
 
-            <View style={{ flex: 1, minHeight: 82, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL, padding: 15, marginTop: 10 }} >
+            <View style={{ flex: 1, height: 82, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL, padding: 15, marginTop: 10 }} >
               <Text style={[styles.tituloUtilidades, { color: estilos.FondoTituloCabecera_UTILIDADES }]}>DÍGITO CONTROL</Text>
               <Text style={{ fontSize: 16,fontFamily: "Merriweather-Regular", textAlign: 'center', color: 'white', margin: 5, fontWeight: 'bold' }}>{this.props.dc.data || ''}</Text>
             </View>

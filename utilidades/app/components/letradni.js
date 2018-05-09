@@ -38,7 +38,7 @@ export default class letradni extends Component {
 
          <View style={{ flexDirection: 'column', margin:30,  padding:20}} >
 
-            <View style={{ flex: 1, maxHeight: 70, backgroundColor: estilos.Fondo_PRINCIPAL, padding: 5 }} >
+            <View style={{ flex: 1, height: 82, backgroundColor: estilos.Fondo_PRINCIPAL, padding: 5 }} >
               <Text style={styles.tituloUtilidades}>Nº DNI</Text>
               <Item>
                 <Input style={{textAlign:'center', borderBottomColor:'lightgray', borderBottomWidth:0.5, height:40,marginLeft:50,marginRight:50,fontFamily: "Merriweather-Regular"}}
@@ -48,7 +48,7 @@ export default class letradni extends Component {
               </Item>
             </View>
 
-            <View style={{ flex: 1, minHeight: 82, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL, padding: 15, marginTop:10 }} >
+            <View style={{ flex: 1, height: 82, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL, padding: 15, marginTop:10 }} >
                 <Text style={[styles.tituloUtilidades,{color:estilos.FondoTituloCabecera_UTILIDADES}]}>LETRA</Text>
                 <Text style={{ fontSize: 16, textAlign: 'center', color:'white', margin:5, fontWeight: 'bold',fontFamily: "Merriweather-Regular"}}>{this.props.letradni.data}</Text>
             </View>         
