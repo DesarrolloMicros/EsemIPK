@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { 
+    Platform,
     ScrollView, 
     View,
     Text,
@@ -84,7 +85,11 @@ export default class calcprestamos extends Component {
     _onFocus_Importe (){         
         var importe = this.state.importe; 
         if (!fn.isnull(importe)) {
-          importe= importe.replace('.','').replace(',','.');
+          if (Platform.OS=='android'){//ANDROID            
+            importe= importe.split('.').join('').replace(',','.');
+          }else{ //IOS
+            importe= importe.split('.').join('');
+          }        
           this.setState({importe});    
         }    
     }

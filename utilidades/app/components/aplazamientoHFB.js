@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ScrollView, View, Text, WebView} from 'react-native';
+import {Platform,ScrollView, View, Text, WebView} from 'react-native';
 
 import styles from '../css/app';
 import DatePicker from 'react-native-datepicker';
@@ -52,9 +52,13 @@ export default class aplazamientoHFB extends Component {
 _onFocus_Importe (){         
     var importe = this.state.importe; 
     if (!fn.isnull(importe)) {
-      importe= importe.replace('.','').replace(',','.');
-      this.setState({importe});    
-    }    
+        if (Platform.OS=='android'){//ANDROID            
+          importe= importe.split('.').join('').replace(',','.');
+        }else{ //IOS
+          importe= importe.split('.').join('');
+        }        
+        this.setState({importe});    
+      } 
 }
   
   render() {

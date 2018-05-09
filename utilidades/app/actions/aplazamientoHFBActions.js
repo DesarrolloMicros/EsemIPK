@@ -4,7 +4,9 @@ import api from './../api/aplazamientoHFB';
 import apiLim from './../api/limitesHFB';
 
 export const get = (importe, FIni, Meses, Voluntario) => dispatch => {
-    //console.log('get',importe);
+
+    importe =(importe ||'').replace(',','.');
+
     return  api.getValoresTabla(importe, FIni, Meses, Voluntario)
             .then((response) => dispatch({type : Types.APLAZAMIENTO_HFB__REQUEST_COMPLETED, payload : response}))
             .then((response)=> {

@@ -13,6 +13,10 @@ export const fnCalcPagoPrestamo = (importe, interes, plazo, n) => {
     };
 
     // GP00: 24/04/2018
+    importe =(importe ||'').replace(',','.');
+    interes = (interes ||'').replace(',','.');
+    plazo = (plazo ||'').replace(',','.');
+
     datos["importe"] = importe;
     datos["interes"] = interes;
     datos["plazo"] = plazo;

@@ -15,8 +15,12 @@ export const isNumeric =(num) =>{
 }
 
 export const FormatoMoneda=(value, decimals, separators) =>{
+    if (!(typeof value === "undefined" || isNaN(parseInt(value)) || value === null || value === '' || value == '')){
+        value=value.toString().replace(',','.');
+    }    
     decimals = decimals >= 0 ? parseInt(decimals, 0) : 2;
-    separators = separators || ['.', "'", ','];
+    //separators = separators || ['.', "'", ','];
+    separators = separators || ['.', ".", ','];
     var number = (parseFloat(value) || 0).toFixed(decimals);
     if (number.length <= (4 + decimals))
         return number.replace('.', separators[separators.length - 1]);
@@ -32,7 +36,7 @@ export const FormatoMoneda=(value, decimals, separators) =>{
         idx = (++idx) % 2;
         start -= 3;
     }
-    return (parts.length == 3 ? '-' : '') + result;
+    return (parts.length == 3 ? '-' : '') + result.replace('undefined','.');
 }
 
 export const Redondear = (number, precision) => {

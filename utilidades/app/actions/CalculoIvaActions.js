@@ -13,7 +13,7 @@ export const fnCalculoIVA = (CampoResultado, BaseImponible, Iva_Val, IRPF_Val, R
     if (CampoResultado == 'Total') {//Modificamos BaseImponible
         var num=BaseImponible.indexOf(',').toString();
         if (num != '-1'){
-            vBaseImponible=BaseImponible.replace('.','').replace(',','.');
+            vBaseImponible=BaseImponible.split('.').join('').replace(',','.');
         }else{
             vBaseImponible=BaseImponible;
         }        
@@ -24,8 +24,8 @@ export const fnCalculoIVA = (CampoResultado, BaseImponible, Iva_Val, IRPF_Val, R
     } else if (CampoResultado == 'BaseImponible') {//Modificamos Total
         var num=Total.indexOf(',').toString();
         if (num != '-1'){
-            vTotal=Total.replace('.','').replace(',','.');
-        }else{
+            vTotal=Total.split('.').join('').replace(',','.');
+        }else{9
             vTotal=Total;
         }        
         vBaseImponible = vTotal - (vTotal - (vTotal / (((parseFloat(Iva_Val) + parseFloat(RecargoEquivalencia_Val) - IRPF_Val) / 100) + 1)));
@@ -38,7 +38,7 @@ export const fnCalculoIVA = (CampoResultado, BaseImponible, Iva_Val, IRPF_Val, R
 
     var num=BaseImponible.indexOf(',').toString();
     if (num != '-1'){
-            vBaseImponible=BaseImponible.replace('.','').replace(',','.');
+            vBaseImponible=BaseImponible.split('.').join('').replace(',','.');
         }else{
             vBaseImponible=BaseImponible;
     }               
