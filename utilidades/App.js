@@ -58,13 +58,16 @@ export default class App extends Component {
   }
 
   menu = <Menu onItemSelected={this.onMenuItemSelected}  navigator={navigator}/>;
-  iconMenu=<Icon name='ios-menu' style={styles.iconMenuLateral} onPress={(isOpen) => this.updateMenuState(true)}/>
-  iconPower=<Icon name='ios-power' style={styles.iconPowerOff} onPress={() => this.exitApp()}/>
-
+  
   render() {
 
-    const logoHeader=  this.state.selectedItem==pages.INICIO?<Image resizeMode='contain' style={{ width:estilos.LogoCabecera_WIDTH,height:estilos.LogoCabecera_HEIGHT}} source={require('./app/resources/LogoCabeceraPrincipal.png')}/>: <Image resizeMode='contain' style={{width:estilos.LogoCabecera_WIDTH,height:estilos.LogoCabecera_HEIGHT}} source={require('./app/resources/LogoCabeceraUtilidades.png')}/>
+    const logoHeader=  this.state.selectedItem==pages.INICIO?<Image resizeMode='contain' style={{ width:estilos.LogoCabecera_WIDTH_Ini,height:estilos.LogoCabecera_HEIGHT_Ini, marginLeft: -30}} source={require('./app/resources/LogoCabeceraPrincipal.png')}/>: <Image resizeMode='contain' style={{width:estilos.LogoCabecera_WIDTH,height:estilos.LogoCabecera_HEIGHT, marginBottom: 10, marginLeft: -30}} source={require('./app/resources/LogoCabeceraUtilidades.png')}/>
     const NavigationBarBackgroundColor = this.state.selectedItem==pages.INICIO?'#bd9500':'#ebdfb2';
+    
+    const styleIconMenu = (this.state.selectedItem==pages.INICIO ? {color: 'white'} : {color: '#bd9500'});
+    
+    iconMenu=<Icon name='ios-menu' style={[styleIconMenu, styles.iconMenuLateral]} onPress={(isOpen) => this.updateMenuState(true)}/>
+    iconPower=<Icon name='ios-power' style={[styles.iconPowerOff, styleIconMenu]} onPress={() => this.exitApp()}/>
  
     return (
       <Provider store={store}>
@@ -76,9 +79,9 @@ export default class App extends Component {
 
           <NavigationBar
             style={{ backgroundColor:NavigationBarBackgroundColor, height:80}}
-            title={<View style={{ marginRight:10}}>{logoHeader}</View>}
-            leftButton={this.iconMenu}
-            rightButton={this.iconPower}/>
+            title={<View style={{ }}>{logoHeader}</View>}
+            leftButton={iconMenu}
+            rightButton={iconPower}/>
 
           <NavigateTo scene={this.state.selectedItem} onItemSelected={this.onMenuItemSelected} />
 
@@ -124,11 +127,9 @@ const styles = StyleSheet.create({
     top: 5,
   },
   iconMenuLateral:{
-    color: 'white',
      padding: 10,
   },
   iconPowerOff:{
-    color: 'white',
     paddingTop: 10,
     paddingBottom: 0,
     paddingRight: 10
