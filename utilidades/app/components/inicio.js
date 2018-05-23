@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, View, Text, ScrollView, Linking, TouchableOpacity,Image} from 'react-native';
+import { StyleSheet, View, Text, ScrollView, Linking, TouchableOpacity,Image,Dimensions} from 'react-native';
 import {
   Button ,
   Item,
@@ -27,22 +27,36 @@ const BtnPage = ({icono,texto, onItemSelected}) => <TouchableOpacity style={{wid
                                         
 */                                        
 
-const BtnLink = ({icono,texto,link}) => <TouchableOpacity style={{width:'48%',backgroundColor: estilos.Btn_backgroundColor ,padding:10, borderRadius:5}} onPress={() => Linking.openURL(link)}>
+const BtnLink = ({icono,texto,link}) => <TouchableOpacity style={{width:'46%',backgroundColor: estilos.Btn_backgroundColor ,padding:10, borderRadius:5}} onPress={() => Linking.openURL(link)}>
                                           <View style={{alignItems:'center'}}><Image style={{resizeMode:'contain',width:estilos.IconoBoton_WIDTH, height:estilos.IconoBoton_HEIGHT}} source={icono}/></View>
-                                          <Text style={{color: estilos.Btn_Color,textAlign:'center',fontSize:15, marginTop:5, padding:5, fontFamily: "Merriweather-Regular"}}>{texto}</Text>
+                                          <Text style={{color: 'white',textAlign:'center',fontSize:15, marginTop:5, padding:5, fontFamily: "Merriweather-Black"}}>{texto}</Text>
                                         </TouchableOpacity>  
 
                                         
 
-const BtnPage = ({icono,texto, onItemSelected}) => <TouchableOpacity style={{width:'48%',backgroundColor: estilos.Btn_backgroundColor,padding:10,borderRadius:5}} onPress={() => onItemSelected()}>
+const BtnPage = ({icono,texto, onItemSelected}) => <TouchableOpacity style={{width:'46%',backgroundColor: estilos.Btn_backgroundColor,padding:10,borderRadius:5}} onPress={() => onItemSelected()}>
                                                     <View style={{alignItems:'center'}}><Image style={{width:estilos.IconoBoton_WIDTH,height:estilos.IconoBoton_HEIGHT}} source={icono}/></View>
-                                                    <Text style={{color:estilos.Btn_Color, textAlign:'center',fontSize: 15, marginTop:5, padding:5, fontFamily: "Merriweather-Regular"}}>{texto}</Text>
+                                                    <Text style={{color: 'white', textAlign:'center',fontSize: 15, marginTop:5, padding:5, fontFamily: "Merriweather-Black"}}>{texto}</Text>
                                                   </TouchableOpacity>
-                                        
+
+var screen = Dimensions.get('window');
+
 export default class inicio extends Component {
   
-  render() {
+  constructor(props) {  
+    super(props);
 
+    this.state={height:screen.height,width:screen.width};
+  } 
+
+  _onLayout(event){
+    const {width,height}=event.nativeEvent.layout;
+    this.setState({height:height,width: width});
+  }
+
+  render() {
+    const txtAreaClientes = 'Area de ' + + ((this.state.width>this.state.height)? '' : '\n') + 'clientes';
+    const txtEnlacesExt = 'Enlaces ' + + ((this.state.width>this.state.height)? '' : '\n') + 'externos';
     return (
       <ScrollView style={{ backgroundColor: estilos.Fondo_PRINCIPAL}}>
         <View style={{ margin: 0, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL, padding:10}} >
@@ -57,34 +71,34 @@ export default class inicio extends Component {
 
             <View style={{flexDirection:'row', justifyContent:'space-around', marginBottom:15, marginTop:80}}>
               <BtnLink icono= {estilos.Ico_PortalEmpleado} texto='Portal del empleado' link='https://portal.esem-empresas.net/portal'/>
-              <BtnLink icono= {estilos.Ico_AreaClientes} texto='Area de            clientes' link='https://portal.esem-empresas.net/areacliente/Login.aspx'/>
+              <BtnLink icono= {estilos.Ico_AreaClientes} texto={txtAreaClientes} link='https://portal.esem-empresas.net/areacliente/Login.aspx'/>
             </View>
 
             <View style={{flexDirection:'row', justifyContent:'space-around', marginBottom:80}}>
               <BtnPage icono= {estilos.Ico_UtilidadesContables} texto='Utilidades contables' onItemSelected={() => this.props.onItemSelected(pages.UTILIDADES)}/>            
-              <BtnPage icono= {estilos.Ico_EnlacesExternos} texto='Enlaces            externos' onItemSelected={() => this.props.onItemSelected(pages.ENLACES_EXT)}/>           
+              <BtnPage icono= {estilos.Ico_EnlacesExternos} texto={txtEnlacesExt} onItemSelected={() => this.props.onItemSelected(pages.ENLACES_EXT)}/>           
             </View>
 
           </View>  
 
           <TouchableOpacity onPress={() => this.refs.modalSecretaria.open()} style={{ backgroundColor: estilos.Btn_Secretaria_backgroundColor, flex: 1, padding: 5, margin:5, alignItems: 'center', borderRadius:5, marginTop:15, marginBottom:15 }}>
-            <Text style={{color: '#bd9500', fontFamily: "Merriweather-Regular"}}>Secretaría</Text>
+            <Text style={{color: '#bd9500', fontFamily: "Merriweather-Black"}}>Secretaría</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => this.refs.modalDepartamentoFiscal.open()} style={{ backgroundColor: estilos.Btn_DepartamentoFiscal_backgroundColor, flex: 1, padding: 5, margin: 5, alignItems: 'center', borderRadius:5, marginBottom:15 }}>
-            <Text style={{ color: 'white', fontFamily: "Merriweather-Regular" }}>Departamento Fiscal</Text>
+            <Text style={{ color: 'white', fontFamily: "Merriweather-Black" }}>Departamento Fiscal</Text>
           </TouchableOpacity>
          
           <TouchableOpacity onPress={() => this.refs.modalDepartamentoLaboral.open()} style={{ backgroundColor: estilos.Btn_DepartamentoLaboral_backgroundColor, flex: 1, padding: 5, margin: 5, alignItems: 'center', borderRadius:5 , marginBottom:15}}>
-            <Text style={{ color: 'white', fontFamily: "Merriweather-Regular" }}>Departamento Laboral</Text>
+            <Text style={{ color: 'white', fontFamily: "Merriweather-Black" }}>Departamento Laboral</Text>
           </TouchableOpacity>
           
           <TouchableOpacity onPress={() => this.refs.modalDepartamentoContabilidad.open()} style={{ backgroundColor: estilos.Btn_DepartamentoContabilidad_backgroundColor, flex: 1, padding: 5, margin: 5, alignItems: 'center', borderRadius:5, marginBottom:15 }}>
-            <Text style={{ color: 'white', fontFamily: "Merriweather-Regular" }}>Departamento Contabilidad</Text>
+            <Text style={{ color: 'white', fontFamily: "Merriweather-Black" }}>Departamento Contabilidad</Text>
           </TouchableOpacity>
           
           <TouchableOpacity onPress={() => this.refs.modalDepartamentoJuridico.open()} style={{ backgroundColor: estilos.Btn_DepartamentoJuridico_backgroundColor, flex: 1, padding: 5, margin: 5, alignItems: 'center', borderRadius:5, marginBottom:15 }}>
-            <Text style={{ color: 'white', fontFamily: "Merriweather-Regular" }}>Departamento Jurídico</Text>
+            <Text style={{ color: 'white', fontFamily: "Merriweather-Black" }}>Departamento Jurídico</Text>
           </TouchableOpacity>
          
         </View>
@@ -93,17 +107,17 @@ export default class inicio extends Component {
           <Button transparent onPress={() => this.refs.modalSecretaria.close()} style={[styles.btn, styles.btnModal]}><Text style={styles.btnClosemodal}>X</Text></Button>          
 
           <View style={{alignItems: 'center' }}>
-            <Text style={{color:estilos.tituloModal, fontFamily: "Merriweather-Regular"}}>Llamar</Text>
+            <Text style={{color:estilos.tituloModal, fontFamily: "Merriweather-Black"}}>Llamar</Text>
             <TouchableOpacity onPress={() => Linking.openURL('tel:944538181')}>
-              <Text style={{color:estilos.datoModal, fontFamily: "Merriweather-Regular"}}>94 453 81 81</Text>
+              <Text style={{color:estilos.datoModal, fontFamily: "RobotoCondensed-Bold"}}>94 453 81 81</Text>
             </TouchableOpacity>
-            <Text style={{color:estilos.tituloModal, marginTop:10}}>Enviar e-mail</Text>
+            <Text style={{color:estilos.tituloModal, fontFamily: "Merriweather-Black", marginTop:10}}>Enviar e-mail</Text>
             <TouchableOpacity onPress={() => Linking.openURL('mailto:secretaria@esem-empresas.net')}>
               <Text style={{color:estilos.datoModal, fontFamily: "Merriweather-Regular"}}>secretaria@esem-empresas.net</Text>
             </TouchableOpacity>
-            <Text style={{color:estilos.tituloModal, marginTop:10}}>Whashapp</Text>
+            <Text style={{color:estilos.tituloModal, fontFamily: "Merriweather-Black", marginTop:10}}>WhatsApp</Text>
             <TouchableOpacity onPress={() => Linking.openURL('whatsapp://send?phone=650467124')}>
-              <Text style={{color:estilos.datoModal, fontFamily: "Merriweather-Regular"}}>650467124</Text>
+              <Text style={{color:estilos.datoModal, fontFamily: "RobotoCondensed-Bold"}}>650467124</Text>
             </TouchableOpacity>
           </View>
              
@@ -113,17 +127,17 @@ export default class inicio extends Component {
           <Button transparent onPress={() => this.refs.modalDepartamentoFiscal.close()} style={[styles.btn, styles.btnModal]}><Text style={styles.btnClosemodal}>X</Text></Button>          
 
           <View style={{alignItems: 'center' }}>
-            <Text style={{color:estilos.tituloModal, fontFamily: "Merriweather-Regular"}}>Llamar</Text>
+            <Text style={{color:estilos.tituloModal, fontFamily: "Merriweather-Black"}}>Llamar</Text>
             <TouchableOpacity onPress={() => Linking.openURL('tel:944538181')}>
-              <Text style={{color:estilos.datoModal, fontFamily: "Merriweather-Regular"}}>94 453 81 81</Text>
+              <Text style={{color:estilos.datoModal, fontFamily: "RobotoCondensed-Bold"}}>94 453 81 81</Text>
             </TouchableOpacity>
-            <Text style={{color:estilos.tituloModal, marginTop:10, fontFamily: "Merriweather-Regular"}}>Enviar e-mail</Text>
+            <Text style={{color:estilos.tituloModal, fontFamily: "Merriweather-Black", marginTop:10}}>Enviar e-mail</Text>
             <TouchableOpacity onPress={() => Linking.openURL('mailto:secretaria@esem-empresas.net')}>
               <Text style={{color:estilos.datoModal, fontFamily: "Merriweather-Regular"}}>secretaria@esem-empresas.net</Text>
             </TouchableOpacity>
-            <Text style={{color:estilos.tituloModal, marginTop:10, fontFamily: "Merriweather-Regular"}}>Fax</Text>
+            <Text style={{color:estilos.tituloModal, fontFamily: "Merriweather-Black", marginTop:10}}>Fax</Text>
             <TouchableOpacity>
-              <Text style={{color:estilos.datoModal, fontFamily: "Merriweather-Regular"}}>94 494 15 73</Text>
+              <Text style={{color:estilos.datoModal, fontFamily: "RobotoCondensed-Bold"}}>94 494 15 73</Text>
             </TouchableOpacity>
           </View>
              
@@ -133,17 +147,17 @@ export default class inicio extends Component {
           <Button transparent onPress={() => this.refs.modalDepartamentoLaboral.close()} style={[styles.btn, styles.btnModal]}><Text style={styles.btnClosemodal}>X</Text></Button>          
 
           <View style={{alignItems: 'center' }}>
-            <Text style={{color:estilos.tituloModal, fontFamily: "Merriweather-Regular"}}>Llamar</Text>
+            <Text style={{color:estilos.tituloModal, fontFamily: "Merriweather-Black"}}>Llamar</Text>
             <TouchableOpacity onPress={() => Linking.openURL('tel:944538182')}>
-              <Text style={{color:estilos.datoModal, fontFamily: "Merriweather-Regular"}}>94 453 81 82</Text>
+              <Text style={{color:estilos.datoModal, fontFamily: "RobotoCondensed-Bold"}}>94 453 81 82</Text>
             </TouchableOpacity>
-            <Text style={{color:estilos.tituloModal, marginTop:10, fontFamily: "Merriweather-Regular"}}>Enviar e-mail</Text>
+            <Text style={{color:estilos.tituloModal, fontFamily: "Merriweather-Black", marginTop:10}}>Enviar e-mail</Text>
             <TouchableOpacity onPress={() => Linking.openURL('mailto:laboral@esem-empresas.net')}>
               <Text style={{color:estilos.datoModal, fontFamily: "Merriweather-Regular"}}>laboral@esem-empresas.net</Text>
             </TouchableOpacity>
-            <Text style={{color:estilos.tituloModal, marginTop:10, fontFamily: "Merriweather-Regular"}}>Fax</Text>
+            <Text style={{color:estilos.tituloModal, fontFamily: "Merriweather-Black", marginTop:10}}>Fax</Text>
             <TouchableOpacity>
-              <Text style={{color:estilos.datoModal, fontFamily: "Merriweather-Regular"}}>94 453 19 50</Text>
+              <Text style={{color:estilos.datoModal, fontFamily: "RobotoCondensed-Bold"}}>94 453 19 50</Text>
             </TouchableOpacity>
           </View>
              
@@ -153,17 +167,17 @@ export default class inicio extends Component {
           <Button transparent onPress={() => this.refs.modalDepartamentoContabilidad.close()} style={[styles.btn, styles.btnModal]}><Text style={styles.btnClosemodal}>X</Text></Button>          
 
           <View style={{alignItems: 'center' }}>
-            <Text style={{color:estilos.tituloModal, fontFamily: "Merriweather-Regular"}}>Llamar</Text>
+            <Text style={{color:estilos.tituloModal, fontFamily: "Merriweather-Black"}}>Llamar</Text>
             <TouchableOpacity onPress={() => Linking.openURL('tel:944538183')}>
-              <Text style={{color:estilos.datoModal, fontFamily: "Merriweather-Regular"}}>94 453 81 83</Text>
+              <Text style={{color:estilos.datoModal, fontFamily: "RobotoCondensed-Bold"}}>94 453 81 83</Text>
             </TouchableOpacity>
-            <Text style={{color:estilos.tituloModal, marginTop:10, fontFamily: "Merriweather-Regular"}}>Enviar e-mail</Text>
+            <Text style={{color:estilos.tituloModal, marginTop:10, fontFamily: "Merriweather-Black"}}>Enviar e-mail</Text>
             <TouchableOpacity onPress={() => Linking.openURL('mailto:contabilidad@esem-empresas.net')}>
               <Text style={{color:estilos.datoModal, fontFamily: "Merriweather-Regular"}}>contabilidad@esem-empresas.net</Text>
             </TouchableOpacity>
-            <Text style={{color:estilos.tituloModal, marginTop:10, fontFamily: "Merriweather-Regular"}}>Fax</Text>
+            <Text style={{color:estilos.tituloModal, marginTop:10, fontFamily: "Merriweather-Black"}}>Fax</Text>
             <TouchableOpacity>
-              <Text style={{color:estilos.datoModal, fontFamily: "Merriweather-Regular"}}>94 453 82 78</Text>
+              <Text style={{color:estilos.datoModal, fontFamily: "RobotoCondensed-Bold"}}>94 453 82 78</Text>
             </TouchableOpacity>
           </View>
              
@@ -173,17 +187,17 @@ export default class inicio extends Component {
           <Button transparent onPress={() => this.refs.modalDepartamentoJuridico.close()} style={[styles.btn, styles.btnModal]}><Text style={styles.btnClosemodal}>X</Text></Button>          
 
           <View style={{alignItems: 'center' }}>
-            <Text style={{color:estilos.tituloModal, fontFamily: "Merriweather-Regular"}}>Llamar</Text>
+            <Text style={{color:estilos.tituloModal, fontFamily: "Merriweather-Black"}}>Llamar</Text>
             <TouchableOpacity onPress={() => Linking.openURL('tel:944538181')}>
-              <Text style={{color:estilos.datoModal, fontFamily: "Merriweather-Regular"}}>94 453 81 81</Text>
+              <Text style={{color:estilos.datoModal, fontFamily: "RobotoCondensed-Bold"}}>94 453 81 81</Text>
             </TouchableOpacity>
-            <Text style={{color:estilos.tituloModal, marginTop:10, fontFamily: "Merriweather-Regular"}}>Enviar e-mail</Text>
+            <Text style={{color:estilos.tituloModal, marginTop:10, fontFamily: "Merriweather-Black"}}>Enviar e-mail</Text>
             <TouchableOpacity onPress={() => Linking.openURL('mailto:abogados@esem-empresas.net')}>
               <Text style={{color:estilos.datoModal, fontFamily: "Merriweather-Regular"}}>abogados@esem-empresas.net</Text>
             </TouchableOpacity>
-            <Text style={{color:estilos.tituloModal, marginTop:10, fontFamily: "Merriweather-Regular"}}>Fax</Text>
+            <Text style={{color:estilos.tituloModal, marginTop:10, fontFamily: "Merriweather-Black"}}>Fax</Text>
             <TouchableOpacity>
-              <Text style={{color:estilos.datoModal, fontFamily: "Merriweather-Regular"}}>94 453 36 60</Text>
+              <Text style={{color:estilos.datoModal, fontFamily: "RobotoCondensed-Bold"}}>94 453 36 60</Text>
             </TouchableOpacity>
           </View>
              
