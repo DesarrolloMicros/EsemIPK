@@ -47,6 +47,7 @@ export default class inicio extends Component {
     super(props);
 
     this.state={height:screen.height,width:screen.width};
+    this._onLayout=this._onLayout.bind(this);
   } 
 
   _onLayout(event){
@@ -55,10 +56,10 @@ export default class inicio extends Component {
   }
 
   render() {
-    const txtAreaClientes = 'Area de ' + + ((this.state.width>this.state.height)? '' : '\n') + 'clientes';
-    const txtEnlacesExt = 'Enlaces ' + + ((this.state.width>this.state.height)? '' : '\n') + 'externos';
+    const txtAreaClientes = 'Area de' + ((this.state.width>this.state.height)? ' ' : '\n') + 'clientes';
+    const txtEnlacesExt = 'Enlaces' + ((this.state.width>this.state.height)? ' ' : '\n') + 'externos';
     return (
-      <ScrollView style={{ backgroundColor: estilos.Fondo_PRINCIPAL}}>
+      <ScrollView style={{ backgroundColor: estilos.Fondo_PRINCIPAL}} onLayout={this._onLayout}>
         <View style={{ margin: 0, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL, padding:10}} >
           <Text style={{ fontSize: 16, textAlign:'center', color:'white',fontFamily: "Merriweather-Regular" }}>
             Asesoría, consultoría y servicios jurídicos
