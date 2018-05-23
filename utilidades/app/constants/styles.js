@@ -26,8 +26,11 @@ export const FondoTituloCabecera_UTILIDADES = '#5e4f2b';
 
 export const Fondo_PRINCIPAL = '#e3e1da';
 
-export const LogoCabecera_WIDTH = 250;
-export const LogoCabecera_HEIGHT = 50;
+export const LogoCabecera_WIDTH_Ini = 250;
+export const LogoCabecera_HEIGHT_Ini = 50;
+
+export const LogoCabecera_WIDTH = 175;
+export const LogoCabecera_HEIGHT = 35;
 
 export const IconoBoton_WIDTH = 25;
 export const IconoBoton_HEIGHT = 25;
