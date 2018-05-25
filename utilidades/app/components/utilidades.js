@@ -27,9 +27,9 @@ const BtnPage = ({icono,texto, onItemSelected}) => <TouchableOpacity style={{wid
 
 const BtnPage = ({ icono, texto, onItemSelected, aumentar }) => <TouchableOpacity style={{ width: '46%', backgroundColor: estilos.Btn_backgroundColorUtilidades, padding: 8, borderRadius: 5 }} onPress={() => onItemSelected()}>
                                                         <View style={{ alignItems: 'center' }}>
-                                                          <Image style={{ resizeMode:'contain',width: (aumentar === true ? estilos.IconoBoton_WIDTH + 12 : estilos.IconoBoton_WIDTH), height: estilos.IconoBoton_HEIGHT }} source={icono} />
+                                                          <Image style={{ marginTop: 5,resizeMode:'contain',width: (aumentar === true ? estilos.IconoBoton_WIDTH + 12 : estilos.IconoBoton_WIDTH), height: estilos.IconoBoton_HEIGHT }} source={icono} />
                                                         </View>
-                                                        <Text style={{ color: estilos.Btn_ColorUtilidades, textAlign: 'center', fontSize: 15, marginTop: 5, padding:3, fontFamily: "Merriweather-Black"}}>{texto}</Text>
+                                                        <Text style={{ color: estilos.Btn_ColorUtilidades, textAlign: 'center', fontSize: 15, marginTop: -2, padding:3, fontFamily: "Merriweather-Black"}}>{texto}</Text>
                                                       </TouchableOpacity>
 
 export default class Utilidades extends Component {
@@ -63,7 +63,7 @@ export default class Utilidades extends Component {
                 <Icono style={{color:'white'}} name="arrow-round-back"/>
           </Button>  
           <View style={{ flex:1,  alignItems:'center', justifyContent:'center', marginLeft: -40 }}>
-            <Text style={{ fontSize: 20, textAlign:'center', color:'white',fontFamily: "Merriweather-Regular", paddingTop: -15, paddingBottom: -15 }}>UTILIDADES CONTABLES</Text>                 
+            <Text style={{ fontSize: 16, textAlign:'center', color:'white',fontFamily: "Merriweather-Regular", paddingTop: -15, paddingBottom: -15 }}>UTILIDADES CONTABLES</Text>                 
           </View>
         </View>
 

@@ -28,15 +28,15 @@ const BtnPage = ({icono,texto, onItemSelected}) => <TouchableOpacity style={{wid
 */                                        
 
 const BtnLink = ({icono,texto,link}) => <TouchableOpacity style={{width:'46%',backgroundColor: estilos.Btn_backgroundColor ,padding:10, borderRadius:5}} onPress={() => Linking.openURL(link)}>
-                                          <View style={{alignItems:'center'}}><Image style={{resizeMode:'contain',width:estilos.IconoBoton_WIDTH, height:estilos.IconoBoton_HEIGHT}} source={icono}/></View>
-                                          <Text style={{color: 'white',textAlign:'center',fontSize:15, marginTop:5, padding:5, fontFamily: "Merriweather-Black"}}>{texto}</Text>
+                                          <View style={{alignItems:'center'}}><Image style={{marginTop: 5,resizeMode:'contain',width:estilos.IconoBoton_WIDTH, height:estilos.IconoBoton_HEIGHT}} source={icono}/></View>
+                                          <Text style={{color: 'white',textAlign:'center',fontSize:15, marginTop:-2, padding:5, fontFamily: "Merriweather-Black"}}>{texto}</Text>
                                         </TouchableOpacity>  
 
                                         
 
 const BtnPage = ({icono,texto, onItemSelected}) => <TouchableOpacity style={{width:'46%',backgroundColor: estilos.Btn_backgroundColor,padding:10,borderRadius:5}} onPress={() => onItemSelected()}>
-                                                    <View style={{alignItems:'center'}}><Image style={{width:estilos.IconoBoton_WIDTH,height:estilos.IconoBoton_HEIGHT}} source={icono}/></View>
-                                                    <Text style={{color: 'white', textAlign:'center',fontSize: 15, marginTop:5, padding:5, fontFamily: "Merriweather-Black"}}>{texto}</Text>
+                                                    <View style={{alignItems:'center'}}><Image style={{marginTop: 5,width:estilos.IconoBoton_WIDTH,height:estilos.IconoBoton_HEIGHT}} source={icono}/></View>
+                                                    <Text style={{color: 'white', textAlign:'center',fontSize: 15, marginTop:-2, padding:5, fontFamily: "Merriweather-Black"}}>{texto}</Text>
                                                   </TouchableOpacity>
 
 var screen = Dimensions.get('window');
@@ -83,23 +83,23 @@ export default class inicio extends Component {
           </View>  
 
           <TouchableOpacity onPress={() => this.refs.modalSecretaria.open()} style={{ backgroundColor: estilos.Btn_Secretaria_backgroundColor, flex: 1, padding: 5, margin:5, alignItems: 'center', borderRadius:5, marginTop:15, marginBottom:15 }}>
-            <Text style={{color: '#bd9500', fontFamily: "Merriweather-Black"}}>Secretaría</Text>
+            <Text style={{color: '#bd9500', fontFamily: "Merriweather-Regular"}}>Secretaría</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => this.refs.modalDepartamentoFiscal.open()} style={{ backgroundColor: estilos.Btn_DepartamentoFiscal_backgroundColor, flex: 1, padding: 5, margin: 5, alignItems: 'center', borderRadius:5, marginBottom:15 }}>
-            <Text style={{ color: 'white', fontFamily: "Merriweather-Black" }}>Departamento Fiscal</Text>
+            <Text style={{ color: 'white', fontFamily: "Merriweather-Regular" }}>Departamento Fiscal</Text>
           </TouchableOpacity>
          
           <TouchableOpacity onPress={() => this.refs.modalDepartamentoLaboral.open()} style={{ backgroundColor: estilos.Btn_DepartamentoLaboral_backgroundColor, flex: 1, padding: 5, margin: 5, alignItems: 'center', borderRadius:5 , marginBottom:15}}>
-            <Text style={{ color: 'white', fontFamily: "Merriweather-Black" }}>Departamento Laboral</Text>
+            <Text style={{ color: 'white', fontFamily: "Merriweather-Regular" }}>Departamento Laboral</Text>
           </TouchableOpacity>
           
           <TouchableOpacity onPress={() => this.refs.modalDepartamentoContabilidad.open()} style={{ backgroundColor: estilos.Btn_DepartamentoContabilidad_backgroundColor, flex: 1, padding: 5, margin: 5, alignItems: 'center', borderRadius:5, marginBottom:15 }}>
-            <Text style={{ color: 'white', fontFamily: "Merriweather-Black" }}>Departamento Contabilidad</Text>
+            <Text style={{ color: 'white', fontFamily: "Merriweather-Regular" }}>Departamento Contabilidad</Text>
           </TouchableOpacity>
           
           <TouchableOpacity onPress={() => this.refs.modalDepartamentoJuridico.open()} style={{ backgroundColor: estilos.Btn_DepartamentoJuridico_backgroundColor, flex: 1, padding: 5, margin: 5, alignItems: 'center', borderRadius:5, marginBottom:15 }}>
-            <Text style={{ color: 'white', fontFamily: "Merriweather-Black" }}>Departamento Jurídico</Text>
+            <Text style={{ color: 'white', fontFamily: "Merriweather-Regular" }}>Departamento Jurídico</Text>
           </TouchableOpacity>
          
         </View>
