@@ -66,12 +66,12 @@ function fnValidarCIF (cif) {
  
 	var primerCaracter=cif.substr(0,1).toUpperCase();
  
-	if(primerCaracter.match(/^[FJKNPQRSUVW]$/))
+	if(primerCaracter.match(/^[NPQRSW]$/))
 	{
 		//Empieza por .... Comparamos la ultima letra
 		if(String.fromCharCode(64+unidad).toUpperCase()==cif.substr(cif.length-1,1).toUpperCase())
 			return true;
-	}else if(primerCaracter.match(/^[ABCDEFGHLM]$/)){
+	}else if(primerCaracter.match(/^[ABCDEFGHJUV]$/)){
 		//Se revisa que el ultimo valor coincida con el calculo
 		if(unidad==10)
 			unidad=0;
@@ -93,15 +93,6 @@ export const fnDCCIF = (letra,cif) => {
     if (numCIF.length < 7 || letra == "") {
        vIcono='';vColor='';
     } else if (numCIF.length == 8) {
-		/*
-		var vDC_OK = fnDC(numCIF.substring(0, 7), letra);
-		var vDC_NEW = numCIF.charAt(7);
-		if (vDC_NEW == vDC_OK) {//Correcto            
-			vIcono='ios-checkmark'; vColor='green'
-		 } else {//Incorrecto            
-			vIcono='ios-close'; vColor='red'
-		}
-		*/
 		var CIF_OK =fnValidarCIF(letra+cif);
 		if (CIF_OK) {//Correcto            
 			vIcono='ios-checkmark'; vColor='green'

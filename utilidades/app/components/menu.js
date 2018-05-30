@@ -29,7 +29,7 @@ export default class Menu extends Component {
             <TouchableHighlight onPress={() => this.props.onItemSelected(pages.INICIO)} style={styles.touchable} underlayColor={'#5c5042'}>
                 <View style={styles.avatarContainer}>
                     <Image style={styles.avatar} source={logo}/>
-                    <Text style={styles.name}>Asesoria ESEM</Text>
+                    {/* <Text style={styles.name}>Asesoria ESEM</Text> */}
                 </View>
             </TouchableHighlight>
 

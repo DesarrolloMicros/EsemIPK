@@ -9,6 +9,9 @@ import {
     Input,Icon,Button
 } from 'native-base';
 
+import Cabecera from './generales/cabecera';
+import AreaResultado from './generales/areaResultado';
+
 import * as pages from '../constants/navigation';
 
 import styles from '../css/app';
@@ -37,20 +40,17 @@ export default class digitocontrolCIF extends Component {
   }
 
   render() {
+    //const resultado = (this.props.icono.data.icono !=''?  <View style={{alignItems:'center', justifyContent:'center',width:40,height:40, borderRadius:20, borderColor:'gray', borderWidth:2, backgroundColor:'transparent'}}><Icon name={this.props.icono.data.icono} style={{fontWeight: 'bold', color:this.props.icono.data.color, fontSize:50}}/></View>:null);
+    const resultado = (this.props.icono.data.icono !=''?  <View style={{alignItems:'center', justifyContent:'center'}}><Icon name={this.props.icono.data.icono} style={{ fontWeight: 'bold', color: 'white', fontSize:50 }}/></View>:null);
     return (
       <ScrollView style={{ backgroundColor: 'white' }}>
-        <View style={{ margin: 0, flex: 1}} >
+        
+        <Cabecera onPress={() => this.props.onItemSelected(pages.UTILIDADES)} 
+                          Texto='Comprobador CIF'
+                          ColorFondo={estilos.FondoTituloCabecera_PRINCIPAL}/>
+         <View style={{ margin: 0, flex: 1}} >
 
-          <View style={{ flexDirection: 'row', margin: 0, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL }} >
-            <Button transparent onPress={() => this.props.onItemSelected(pages.UTILIDADES)}>
-              <Icon style={{ color: 'white' }} name="arrow-round-back" />
-            </Button>
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-              <Text style={{ fontSize: 20, textAlign: 'center', color: 'white',fontFamily: "Merriweather-Regular" }}>Comprobador CIF</Text>
-            </View>
-          </View>
-
-          <View style={{ flexDirection: 'column', margin: 30, padding: 20 }} >
+          <View style={{ flexDirection: 'column', marginTop: 30, padding: 20 }} >
 
             <View style={{ flex: 3, flexDirection: 'row', marginTop: 20 }} >
 
@@ -58,7 +58,7 @@ export default class digitocontrolCIF extends Component {
                 <View style={{ borderColor: estilos.Fondo_PRINCIPAL, borderRightWidth: 1, borderBottomWidth: 1 }}>
                   <Text style={styles.tituloUtilidades}>LETRA</Text>
                   <View style={{ alignItems: 'center' }}>
-                    <Input style={{ textAlign: 'center',fontFamily: "Merriweather-Regular", borderBottomColor:'lightgray', borderBottomWidth:0.5, height:40, marginBottom:5 }}                     
+                    <Input style={[styles.inputNumerico, {minWidth:30}]}                     
                       onChangeText={letra => this._onChangeText_Letra(letra)}
                       maxLength={1} />
                   </View>
@@ -69,7 +69,7 @@ export default class digitocontrolCIF extends Component {
                 <View style={{ borderColor: estilos.Fondo_PRINCIPAL, borderBottomWidth: 1 }}>
                   <Text style={styles.tituloUtilidades}>Nº CIF</Text>
                   <View style={{ alignItems: 'center' }}>
-                    <Input style={{ textAlign: 'center',fontFamily: "Merriweather-Regular", borderBottomColor:'lightgray', borderBottomWidth:0.5, height:40, minWidth:100, marginBottom:5}}
+                    <Input style={[styles.inputNumerico, {minWidth:130}]}
                       keyboardType="numeric"
                       onChangeText={cif => this._onChangeText_CIF(cif)}
                       maxLength={8} />
@@ -78,14 +78,9 @@ export default class digitocontrolCIF extends Component {
               </View>            
             
             </View>
-
-            <View style={{ flex: 1, height: 100, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL, padding: 15, marginTop: 20 }} >
-              <Text style={[styles.tituloUtilidades, { color: estilos.FondoTituloCabecera_UTILIDADES }]}>VÁLIDO</Text>
-              <View style={{alignItems:'center', justifyContent:'center', marginTop:10}}>
-                { this.props.icono.data.icono !=''?  <View style={{alignItems:'center', justifyContent:'center',width:40,height:40, borderRadius:20, borderColor:'gray', borderWidth:2, backgroundColor:'transparent'}}><Icon name={this.props.icono.data.icono} style={{fontWeight: 'bold', color:this.props.icono.data.color, fontSize:50}}/></View>:null}
-              </View>
-            </View>
-
+            
+            <AreaResultado Texto='VÁLIDO' icon={resultado} />
+            
           </View>
         
         </View>

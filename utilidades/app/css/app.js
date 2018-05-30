@@ -73,12 +73,29 @@ export default {
     tituloUtilidades:{
         textAlign:'center',
         color: '#d09d0d',
-        fontWeight:'bold',
-        fontFamily: "Merriweather-Regular"
+        fontFamily: 'Merriweather-Bold'
     },
     inputUtilidades:{
         fontSize: 16,
         textAlign:'center',
         color:'#5e4f2b',
+    },
+    inputNumerico:{
+        textAlign:'center', 
+        borderBottomColor:'lightgray', 
+        borderBottomWidth:0.5, 
+        height:40,
+        width: '100%',
+        marginLeft:50,
+        marginRight:50,
+        fontFamily: 'RobotoCondensed-Regular'
+    },
+    resultadoTexto:{ 
+        fontSize: 16, 
+        textAlign: 'center', 
+        color:'white', 
+        margin:5, 
+        fontWeight: 'bold',
+        fontFamily: "Merriweather-Regular"
     }
 }

@@ -17,6 +17,8 @@ import {
     Icon
 } from 'native-base';
 
+import Cabecera from './generales/cabecera';
+
 import * as pages from '../constants/navigation';
 
 import Pie from './piechart/charts/Pie';
@@ -108,16 +110,15 @@ export default class calcprestamos extends Component {
                 ]});
       }*/
 
-      if (newProps.calcprestamo.data.importe !== '' && newProps.calcprestamo.data.interes !=='' && newProps.calcprestamo.data.plazo !== ''){
-        var vTotal = redondear(100 * parseInt(newProps.calcprestamo.data.importe) / (parseInt(newProps.calcprestamo.data.importe) + parseInt(newProps.calcprestamo.data.interestotal)), 1);
-        var vInteres = redondear(100 * parseInt(newProps.calcprestamo.data.interestotal) / (parseInt(newProps.calcprestamo.data.importe) + parseInt(newProps.calcprestamo.data.interestotal)), 1);
-        this.setState(
-              {series :[
-                  {"number": vInteres, "name":"% INTERESES"},
-                  {"number": vTotal, "name":"CAPITAL AMORTIZADO"}, 
-              ]});
-       }
-
+        if (newProps.calcprestamo.data.importe !== '' && newProps.calcprestamo.data.interes !=='' && newProps.calcprestamo.data.plazo !== ''){
+            var vTotal = redondear(100 * parseInt(newProps.calcprestamo.data.importe) / (parseInt(newProps.calcprestamo.data.importe) + parseInt(newProps.calcprestamo.data.interestotal)), 1);
+            var vInteres = redondear(100 * parseInt(newProps.calcprestamo.data.interestotal) / (parseInt(newProps.calcprestamo.data.importe) + parseInt(newProps.calcprestamo.data.interestotal)), 1);
+            this.setState(
+                    {series :[
+                        {"number": (newProps.calcprestamo.data.pagostotal == 0 ? 0 : vInteres) , "name":"% INTERESES"},
+                        {"number": (newProps.calcprestamo.data.pagostotal == 0 ? 0 : vTotal), "name":'CAPITAL' + '\n' + 'AMORTIZADO'}, 
+                    ]});
+        }
     }
 
   render() {
@@ -134,22 +135,16 @@ export default class calcprestamos extends Component {
     return (
       <ScrollView style={{backgroundColor: 'white'}}>
         <View style={{ margin: 0, flex: 1}} >
-
-            <View style={{ flexDirection:'row', margin: 0, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL}} >          
-                <Button  transparent onPress={() => this.props.onItemSelected(pages.UTILIDADES)}>
-                        <Icon style={{color:'white'}} name="arrow-round-back"/>
-                </Button>  
-                <View style={{ flex:1,  alignItems:'center', justifyContent:'center'}}>
-                    <Text style={{ fontSize: 20, textAlign:'center', color:'white',fontFamily: "Merriweather-Regular" }}>Calculadora de Préstamos</Text>                 
-                </View>
-            </View>
-
-            <View style={{ flexDirection: 'column', margin: Platform.OS === 'ios' ? 10 : 30, padding:20}} >
+            <Cabecera onPress={() => this.props.onItemSelected(pages.UTILIDADES)} 
+                  Texto='Calculadora de Préstamos'
+                  ColorFondo={estilos.FondoTituloCabecera_PRINCIPAL}/>
+            
+            <View style={{ flexDirection: 'column', marginTop: Platform.OS === 'ios' ? 10 : 30, padding:20}} >
 
                 <View style={{ flex: 1, height: 82, backgroundColor:'#e3e1da', padding:5}} >
                     <Text style={styles.tituloUtilidades}>IMPORTE PRÉSTAMO</Text>
                     <Item>                
-                        <Input style={{fontSize: 16, textAlign:'center',fontFamily: "Roboto-Regular"}}
+                        <Input style={styles.inputNumerico}
                             keyboardType="numeric"
                             maxLength={15}
                             selectTextOnFocus={true}                           
@@ -160,11 +155,11 @@ export default class calcprestamos extends Component {
                     </Item>
                 </View>
 
-                <View style={{ flex: 3, flexDirection:'row',  marginTop:20 ,}} >
+                <View style={{ flex: 3, flexDirection:'row',  marginTop:20 }} >
 
                     <View style={{flex:1}}>
                         <View style={{ borderColor:'#e3e1da', borderBottomWidth:1,borderRightWidth:1}}>
-                            <Text style={styles.tituloUtilidades}>INTERES ANUAL %</Text>
+                            <Text style={styles.tituloUtilidades}>{'INTERÉS' + '\n' + 'ANUAL %'}</Text>
                             <Item >
                                 <Input style={[styles.inputUtilidades,{fontFamily: "Roboto-Regular"}]}
                                 keyboardType="numeric"
@@ -175,14 +170,14 @@ export default class calcprestamos extends Component {
                             </Item>
                         </View>
                         <View style={{borderColor:'#e3e1da', borderRightWidth:1, height:80}}>
-                            <Text style={[styles.tituloUtilidades,{marginTop:5}]}>CUOTA MENSUAL</Text>
+                            <Text style={[styles.tituloUtilidades,{marginTop:5}]}>{'CUOTA' + '\n' + 'MENSUAL'}</Text>
                             <Text style={[styles.inputUtilidades,{marginTop:10,fontSize:14,fontFamily: "Roboto-Regular"}]}>{calcprestamo && fn.FormatoMoneda(calcprestamo.data.cmensual) + ' €'}</Text>
                         </View>                
                     </View>
 
                     <View style={{flex:1}}>
                         <View style={{ borderColor:'#e3e1da', borderBottomWidth:1,borderRightWidth:1}}>
-                            <Text style={styles.tituloUtilidades}>PLAZO          AÑOS</Text>
+                            <Text style={styles.tituloUtilidades}>{'PLAZO' + '\n' + 'AÑOS'}</Text>
                             <Item >
                                 <Input style={[styles.inputUtilidades,{fontFamily: "Roboto-Regular"}]}
                                 keyboardType="numeric"
@@ -197,14 +192,14 @@ export default class calcprestamos extends Component {
                             </Item>
                         </View>
                         <View style={{borderColor:'#e3e1da', borderRightWidth:1, height:80}}>
-                            <Text style={[styles.tituloUtilidades,{marginTop:5}]}>INTERES          TOTAL</Text>
+                            <Text style={[styles.tituloUtilidades,{marginTop:5}]}>{'INTERÉS' + '\n' + 'TOTAL'}</Text>
                             <Text style={[styles.inputUtilidades,{marginTop:10,fontSize:14,fontFamily: "Roboto-Bold"}]}>{calcprestamo && fn.FormatoMoneda(calcprestamo.data.interestotal)+ ' €'}</Text>
                         </View>                
                     </View>
 
                     <View style={{flex:1}}>
                         <View style={{ borderColor:'#e3e1da', borderBottomWidth:1,}}>
-                            <Text style={styles.tituloUtilidades}>PLAZO          MESES</Text>
+                            <Text style={styles.tituloUtilidades}>{'PLAZO' + '\n' + 'MESES'}</Text>
                             <Item >
                                 <Input style={[styles.inputUtilidades,{fontFamily: "Roboto-Regular"}]}
                                 keyboardType="numeric"
@@ -219,7 +214,7 @@ export default class calcprestamos extends Component {
                             </Item>
                         </View>
                         <View style={{borderColor:'#e3e1da', height:80}}>
-                            <Text style={[styles.tituloUtilidades,{marginTop:5}]}>PAGO          TOTAL</Text>
+                            <Text style={[styles.tituloUtilidades,{marginTop:5}]}>{'PAGO' + '\n' + 'TOTAL'}</Text>
                             <Text style={[styles.inputUtilidades,{marginTop:10,fontSize:14,fontFamily: "Roboto-Bold"}]}>{calcprestamo && fn.FormatoMoneda(calcprestamo.data.pagostotal)+ ' €'}</Text>
                         </View>                
                     </View>

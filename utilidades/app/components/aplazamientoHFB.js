@@ -16,6 +16,9 @@ import {
     Icon
 } from 'native-base';
 
+import Cabecera from './generales/cabecera';
+import CampoFecha from './generales/campoFecha';
+
 import * as pages from '../constants/navigation';
 
 import Tabla from './table';
@@ -62,26 +65,22 @@ _onFocus_Importe (){
 }
   
   render() {
-    
+    const txtPeriodoVoluntario = 'PERIODO' + '\n' + 'VOLUNTARIO';
+
     return (
       <ScrollView style={{backgroundColor: 'white', }}>
         <View style={{ margin: 0, flex: 1}} >       
                 
-                <View style={{ flexDirection:'row', margin: 0, backgroundColor: estilos.FondoTituloCabecera_PRINCIPAL}} >          
-                    <Button  transparent onPress={() => this.props.onItemSelected(pages.UTILIDADES)}>
-                            <Icon style={{color:'white'}} name="arrow-round-back"/>
-                    </Button>  
-                    <View style={{ flex:1,  alignItems:'center', justifyContent:'center'}}>
-                        <Text style={{ fontSize: 20, textAlign:'center', color:'white',fontFamily: "Merriweather-Regular" }}>Aplazar deuda Hacienda</Text>                 
-                    </View>
-                </View>
-
-                <View style={{ flexDirection: 'column', margin: Platform.OS === 'ios' ? 0 : 30, padding:20}} >
+            <Cabecera onPress={() => this.props.onItemSelected(pages.UTILIDADES)} 
+                  Texto='Aplazar deuda Hacienda'
+                  ColorFondo={estilos.FondoTituloCabecera_PRINCIPAL}/>
+                
+                <View style={{ flexDirection: 'column', marginTop: Platform.OS === 'ios' ? 0 : 30, padding:20}} >
 
                     <View style={{ flex: 1, maxHeight: 82, backgroundColor: estilos.Fondo_PRINCIPAL, padding: 5 }} >
                         <Text style={styles.tituloUtilidades}>IMPORTE</Text>
                         <Item>
-                            <Input style={{ fontSize: 16, textAlign: 'center',fontFamily: "Roboto-Regular" }}
+                            <Input style={styles.inputNumerico}
                                 keyboardType="numeric"
                                 maxLength={15}
                                 selectTextOnFocus={true}
@@ -93,79 +92,22 @@ _onFocus_Importe (){
                     </View>
 
                     <View style={{ flex: 3, flexDirection: 'row', marginTop: 20, }} >
+                        <CampoFecha Fecha={this.props.data.date} 
+                                    name='date' 
+                                    Texto={'FECHA' + '\n' + 'INICIO'} 
+                                    onDateChange={this.props.onChange} />
+                        
+                        <CampoFecha Fecha={this.props.data.dateF} 
+                                    name='dateF' 
+                                    Texto={'FECHA' + '\n' + 'FINAL'} 
+                                    onDateChange={this.props.onChange} />
 
-                        <View style={{ flex: 1 }}>
-                            <View style={{ borderColor: estilos.Fondo_PRINCIPAL, borderRightWidth: 1 }}>
-                                <Text style={styles.tituloUtilidades}>FECHA          INICIO</Text>
-                                <View style={{ alignItems:'center'}}>
-                                    <DatePicker style={{width:90}}
-                                        date={this.props.data.date}
-                                        showIcon={false}
-                                        mode="date"
-                                        placeholder="fecha inicio"
-                                        format="DD/MM/YYYY"
-                                        confirmBtnText="Aceptar"
-                                        cancelBtnText="Cancelar"
-                                        androidMode="spinner"
-                                        onDateChange={(date) => this.props.onChange({ "name": "date", "value": date })}
-                                        customStyles={{
-                                            dateInput: {
-                                                borderWidth: 0,
-                                                borderBottomWidth: 0.5,
-                                                borderBottomColor: 'grey',
-                                                height: 30
-                                            },
-                                            dateText: {
-                                                fontSize: 14,
-                                            },
-                                            dateTouchBody: {
-                                                height: 60,
-                                                paddingBottom: 10
-                                            }
-                                        }} />
-                                </View>                                
-                            </View>
-                        </View>
-
-                        <View style={{ flex: 1 }}>
-                            <View style={{ borderColor: estilos.Fondo_PRINCIPAL,  borderRightWidth: 1 }}>
-                                <Text style={styles.tituloUtilidades}>FECHA          FINAL</Text>
-                                <View style={{ alignItems:'center'}}>
-                                    <DatePicker style={{width:90}}
-                                        date={this.props.data.dateF}
-                                        showIcon={false}
-                                        mode="date"
-                                        placeholder="fecha final"
-                                        format="DD/MM/YYYY"
-                                        confirmBtnText="Aceptar"
-                                        cancelBtnText="Cancelar"
-                                        androidMode="spinner"
-                                        onDateChange={(date) => this.props.onChange({ "name": "dateF", "value": date })}
-                                        customStyles={{
-                                            dateInput: {
-                                                borderWidth: 0,
-                                                borderBottomWidth: 0.5,
-                                                borderBottomColor: 'grey',
-                                                height: 30,
-                                            },
-                                            dateText: {
-                                                fontSize: 14,
-                                            },
-                                            dateTouchBody: {
-                                                height: 60,
-                                                paddingBottom: 10
-                                            }
-                                        }} />
-                                </View>
-                            </View>
-
-                        </View>
 
                         <View style={{ flex: 1.2 }}>
                             <View>
-                                <Text style={styles.tituloUtilidades}>PERIODO          VOLUNTARIO</Text>
+                                <Text style={styles.tituloUtilidades}>{txtPeriodoVoluntario}</Text>
                                 <View style={{ alignItems:'center', paddingRight:20, marginTop:20,}}>                                
-                                    <CheckBox checked={this.props.data.pVoluntario} onPress={meses => this.props.onChange({ "name": "pVoluntario", "value": !this.props.data.pVoluntario })} />
+                                    <CheckBox color={estilos.colorEsem} checked={this.props.data.pVoluntario} onPress={meses => this.props.onChange({ "name": "pVoluntario", "value": !this.props.data.pVoluntario })} />
                                 </View>                                
                             </View>
                         </View>
@@ -173,7 +115,7 @@ _onFocus_Importe (){
                     </View> 
 
                     <View style={{ flex: 1,  marginTop:20}}>
-                        <Text style={[styles.tituloUtilidades,{ color:estilos.Fondo_PRINCIPAL}]}>CALENDARIO DE PAGOS</Text>                        
+                        <Text style={[styles.tituloUtilidades,{ color:estilos.Fondo_PRINCIPAL, fontFamily: "Merriweather-Black"}]}>CALENDARIO DE PAGOS</Text>                        
                         <Text style={[{textAlign:'center', fontSize:12, color:estilos.colorEsem,fontFamily: "Merriweather-Regular"}]}>{this.props.limitesHFB.data.texto1} <Text style={[{textAlign:'center',fontFamily: "Merriweather-Regular", fontSize:12, color: estilos.colorEsem,fontWeight: 'bold'}]}> {this.props.limitesHFB.data.texto2} </Text> {this.props.limitesHFB.data.texto3}</Text>
                         <View style={{marginTop:10}} >
                             <Tabla {...this.props} dataSource={this.props.aplazamientoHFB.data} />

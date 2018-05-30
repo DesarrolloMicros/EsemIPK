@@ -12,9 +12,11 @@ export default {
         marginTop: 20,
     },
     avatar: {
-        width: 70,
-        height: 40,
+        width: 80,
+        height: 70,
         flex: 1,    
+        marginLeft: 30,
+        borderRadius: 5
     },
     name: {
         position: 'absolute',
@@ -29,7 +31,7 @@ export default {
     },
     textMenu: {
         position: 'absolute',
-        left: 45,
+        left: 35,
         color: 'white',
         fontSize:19
     },

@@ -50,5 +50,3 @@ export const tituloModal = '#a8a28d';
 export const datoModal = '#5e4f2b';
 
 export const colorEsem = '#bd9500';
-
-

@@ -61,7 +61,7 @@ export default class App extends Component {
   
   render() {
 
-    const logoHeader=  this.state.selectedItem==pages.INICIO?<Image resizeMode='contain' style={{ width:estilos.LogoCabecera_WIDTH_Ini,height:estilos.LogoCabecera_HEIGHT_Ini, marginLeft: -40}} source={require('./app/resources/LogoCabeceraPrincipal.png')}/>: <Image resizeMode='contain' style={{width:estilos.LogoCabecera_WIDTH,height:estilos.LogoCabecera_HEIGHT, marginBottom: 10, marginLeft: -40}} source={require('./app/resources/LogoCabeceraUtilidades.png')}/>
+    const logoHeader=  this.state.selectedItem==pages.INICIO?<Image resizeMode='contain' style={{ width:estilos.LogoCabecera_WIDTH_Ini,height:estilos.LogoCabecera_HEIGHT_Ini, marginLeft: -45}} source={require('./app/resources/LogoCabeceraPrincipal.png')}/>: <Image resizeMode='contain' style={{width:estilos.LogoCabecera_WIDTH,height:estilos.LogoCabecera_HEIGHT, marginBottom: 10, marginLeft: -40}} source={require('./app/resources/LogoCabeceraUtilidades.png')}/>
     const NavigationBarBackgroundColor = this.state.selectedItem==pages.INICIO?'#bd9500':'#ebdfb2';
     
     const styleIconMenu = (this.state.selectedItem==pages.INICIO ? {color: 'white'} : {color: '#bd9500'});

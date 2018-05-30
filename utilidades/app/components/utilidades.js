@@ -10,6 +10,8 @@ import {
     Icon as Icono
 } from 'native-base';
 
+import Cabecera from './generales/cabecera';
+
 import styles from '../css/app';
 import * as estilos from '../constants/styles';
 
@@ -17,13 +19,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import * as pages from '../constants/navigation';
 
 var screen = Dimensions.get('window');
-
-/*
-const BtnPage = ({icono,texto, onItemSelected}) => <TouchableOpacity style={{width:'48%',backgroundColor: '#403322', padding:10,borderRadius:5, justifyContent:'center'}} onPress={() => onItemSelected()}>
-                                                      <View style={{alignItems:'center'}}><Icon name={icono} style={{color:'rgba(255,255,255,0.95)',fontSize: 25}} /></View>
-                                                      <Text style={{color:'#c08e11', textAlign:'center',fontSize: 15, marginTop:5}}>{texto}</Text>
-                                                    </TouchableOpacity>
-*/
 
 const BtnPage = ({ icono, texto, onItemSelected, aumentar }) => <TouchableOpacity style={{ width: '46%', backgroundColor: estilos.Btn_backgroundColorUtilidades, padding: 8, borderRadius: 5 }} onPress={() => onItemSelected()}>
                                                         <View style={{ alignItems: 'center' }}>
@@ -44,8 +39,7 @@ export default class Utilidades extends Component {
 
   _onLayout(event){
     const {width,height}=event.nativeEvent.layout;
-    const orientation =(width>height)?'APAISADO':'NORMAL';   
-    //console.log('Orientacion: ' + orientation + ', width: ' + width + ', height: ' + height);
+    const orientation =(width>height)?'APAISADO':'NORMAL';
     this.setState({height:height,width: width});
   }
 
@@ -56,18 +50,11 @@ export default class Utilidades extends Component {
     const txtCIF = 'Comprobador ' + ((this.state.width>this.state.height)? '' : '\n') + 'CIF';
     return (
       <ScrollView style={{ backgroundColor: 'white' , flex: 1}} onLayout={this._onLayout}>
+        <Cabecera onPress={() => this.props.onItemSelected(pages.INICIO)} 
+                  Texto='UTILIDADES CONTABLES'
+                  ColorFondo={estilos.FondoTituloCabecera_UTILIDADES}/>
 
-
-        <View style={{ flexDirection:'row', padding: 0, backgroundColor: estilos.FondoTituloCabecera_UTILIDADES}} >          
-          <Button style={{ marginTop: -6, marginBottom: -6}} transparent onPress={() => this.props.onItemSelected(pages.INICIO)}>
-                <Icono style={{color:'white'}} name="arrow-round-back"/>
-          </Button>  
-          <View style={{ flex:1,  alignItems:'center', justifyContent:'center', marginLeft: -40 }}>
-            <Text style={{ fontSize: 16, textAlign:'center', color:'white',fontFamily: "Merriweather-Regular", paddingTop: -15, paddingBottom: -15 }}>UTILIDADES CONTABLES</Text>                 
-          </View>
-        </View>
-
-        <View style={{padding:10,  marginTop:10}} >
+        <View style={{padding:20,  marginTop:10}} >
           <View style={{flexDirection:'row', justifyContent:'space-around', marginBottom:12}}>
               <BtnPage icono={estilos.Ico_CalcularLetraDNI} texto={txtLetraDNI} onItemSelected={() => this.props.onItemSelected(pages.LETRA_DNI)}/>            
               <BtnPage icono={estilos.Ico_CalculadoraPrestamos} texto='Calculadora de préstamos' onItemSelected={() => this.props.onItemSelected(pages.CALCULO_PRESTAMOS)}/>           
