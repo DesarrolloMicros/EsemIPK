@@ -132,8 +132,10 @@ _onBlur_Total (){
 //  }
 
   render() {
-    const styleBaseImp = {fontSize: 16, textAlign:'center', fontFamily: (this.state.Marca_BaseImponible ? "RobotoCondensed-Bold" : "RobotoCondensed-Regular")};
-    const styleTotal = {fontSize:  16, textAlign:'center', fontFamily: (this.state.Marca_BaseImponible ? "RobotoCondensed-Regular" : "RobotoCondensed-Bold")};
+    // const styleBaseImp = {fontSize: 16, textAlign:'center', fontFamily: (this.state.Marca_BaseImponible ? "RobotoCondensed-Bold" : "RobotoCondensed-Regular")};
+    // const styleTotal = {fontSize:  16, textAlign:'center', fontFamily: (this.state.Marca_BaseImponible ? "RobotoCondensed-Regular" : "RobotoCondensed-Bold")};
+    const styleBaseImp = {fontSize: 16, textAlign:'center', fontFamily: "RobotoCondensed-Bold"};
+    const styleTotal = {fontSize:  16, textAlign:'center', fontFamily: "RobotoCondensed-Bold"};
 
     return (
       <ScrollView style={{ backgroundColor: 'white' }}>
@@ -210,7 +212,7 @@ _onBlur_Total (){
               </View>              
             </View>
 
-            <View style={{ flex: 1, height: 82, marginTop:60, backgroundColor:'#e3e1da', padding:5}} >
+            <View style={{ flex: 1, height: 82, marginTop:90, backgroundColor:'#e3e1da', padding:5}} >
               <Text style={[styles.tituloUtilidades]}>TOTAL</Text>
               <Item >
                 <Input style={styleTotal}

@@ -12,6 +12,7 @@ import {
 } from 'native-base';
 
 import Cabecera from './generales/cabecera';
+import AreaResultado from './generales/areaResultado';
 
 import * as pages from '../constants/navigation';
 
