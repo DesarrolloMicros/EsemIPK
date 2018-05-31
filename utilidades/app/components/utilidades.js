@@ -24,7 +24,7 @@ const BtnPage = ({ icono, texto, onItemSelected, aumentar }) => <TouchableOpacit
                                                         <View style={{ alignItems: 'center' }}>
                                                           <Image style={{ marginTop: 5,resizeMode:'contain',width: (aumentar === true ? estilos.IconoBoton_WIDTH + 12 : estilos.IconoBoton_WIDTH), height: estilos.IconoBoton_HEIGHT }} source={icono} />
                                                         </View>
-                                                        <Text style={{ color: estilos.Btn_ColorUtilidades, textAlign: 'center', fontSize: 15, marginTop: -2, padding:3, fontFamily: "Merriweather-Black"}}>{texto}</Text>
+                                                        <Text style={{ color: estilos.Btn_ColorUtilidades, textAlign: 'center', fontSize: 15, marginTop: 0, padding:3, fontFamily: "Merriweather-Black"}}>{texto}</Text>
                                                       </TouchableOpacity>
 
 export default class Utilidades extends Component {

@@ -33,7 +33,8 @@ export default {
         position: 'absolute',
         left: 35,
         color: 'white',
-        fontSize:19
+        fontSize:16,
+        fontFamily: "Merriweather-Regular"
     },
     iconMenu: {
         color: 'red',

@@ -46,7 +46,7 @@ class Table extends Component {
       let style = {width: col.width || columnWidth || DEFAULT_COLUMN_WIDTH};
       return (
         <View key={index} style={[styles.headerItem, style]}>
-          <Text style={{fontSize:12, fontFamily: "Merriweather-Regular"}}>{col.title}</Text>
+          <Text style={{fontSize:12, fontFamily: "Merriweather-Bold"}}>{col.title}</Text>
         </View>
       )
     })
@@ -72,8 +72,9 @@ class Table extends Component {
       <ScrollView
         style={styles.container}
         horizontal={true}
-        bounces={false} >
-        <View>
+        bounces={false} 
+        contentContainerStyle={{justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ alignSelf: 'center', alignContent: 'center', backgroundColor:'blue'}}>
           <View style={styles.header}>
             { this._renderHeader() }
           </View>
@@ -90,6 +91,8 @@ class Table extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    alignSelf: 'center',
+    alignContent: 'center'
   },
   contentContainer: {
     height: 240
@@ -128,7 +131,7 @@ const styles = StyleSheet.create({
   },
   celda:{
     fontSize:12,
-    fontFamily: "Merriweather-Regular"
+    fontFamily: "RobotoCondensed-Bold"
   }
 });
 

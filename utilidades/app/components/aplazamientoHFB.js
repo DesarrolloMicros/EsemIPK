@@ -77,7 +77,7 @@ _onFocus_Importe (){
                 
                 <View style={{ flexDirection: 'column', marginTop: Platform.OS === 'ios' ? 0 : 30, padding:20}} >
 
-                    <View style={{ flex: 1, maxHeight: 82, backgroundColor: estilos.Fondo_PRINCIPAL, padding: 5 }} >
+                    <View style={{ flex: 1, maxHeight: 82, backgroundColor: estilos.Fondo_PRINCIPAL, padding: 5}} >
                         <Text style={styles.tituloUtilidades}>IMPORTE</Text>
                         <Item>
                             <Input style={styles.inputNumerico}
@@ -91,15 +91,17 @@ _onFocus_Importe (){
                         </Item>
                     </View>
 
-                    <View style={{ flex: 3, flexDirection: 'row', marginTop: 20, }} >
+                    <View style={{ flex: 3, flexDirection: 'row', marginTop: 20, borderColor:'#e3e1da', borderBottomWidth:1, }} >
                         <CampoFecha Fecha={this.props.data.date} 
                                     name='date' 
                                     Texto={'FECHA' + '\n' + 'INICIO'} 
+                                    placeHolder='fecha Inicio'
                                     onDateChange={this.props.onChange} />
                         
                         <CampoFecha Fecha={this.props.data.dateF} 
                                     name='dateF' 
                                     Texto={'FECHA' + '\n' + 'FINAL'} 
+                                    placeHolder='fecha Final'
                                     onDateChange={this.props.onChange} />
 
 
@@ -116,7 +118,7 @@ _onFocus_Importe (){
 
                     <View style={{ flex: 1,  marginTop:20}}>
                         <Text style={[styles.tituloUtilidades,{ color:estilos.Fondo_PRINCIPAL, fontFamily: "Merriweather-Black"}]}>CALENDARIO DE PAGOS</Text>                        
-                        <Text style={[{textAlign:'center', fontSize:12, color:estilos.colorEsem,fontFamily: "Merriweather-Regular"}]}>{this.props.limitesHFB.data.texto1} <Text style={[{textAlign:'center',fontFamily: "Merriweather-Regular", fontSize:12, color: estilos.colorEsem,fontWeight: 'bold'}]}> {this.props.limitesHFB.data.texto2} </Text> {this.props.limitesHFB.data.texto3}</Text>
+                        {(this.props.limitesHFB.data.texto1 ? <Text style={[{textAlign:'center', fontSize:12, color:estilos.colorEsem,fontFamily: "Merriweather-Regular"}]}>{this.props.limitesHFB.data.texto1} <Text style={[{textAlign:'center',fontFamily: "Merriweather-Regular", fontSize:12, color: estilos.colorEsem,fontWeight: 'bold'}]}> {this.props.limitesHFB.data.texto2} </Text> {this.props.limitesHFB.data.texto3}</Text> : null)}
                         <View style={{marginTop:10}} >
                             <Tabla {...this.props} dataSource={this.props.aplazamientoHFB.data} />
                         </View>

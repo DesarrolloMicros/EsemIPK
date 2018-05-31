@@ -14,13 +14,13 @@ export default class campoFecha extends Component {
             return (
                     <View style={{ flex: 1 }}>
                         <View style={{ borderColor: estilos.Fondo_PRINCIPAL,  borderRightWidth: 1 }}>
-                            <Text style={styles.tituloUtilidades}>{'FECHA' + '\n' + 'FINAL'}</Text>
+                            <Text style={styles.tituloUtilidades}>{this.props.Texto}</Text>
                             <View style={{ alignItems:'center'}}>
                                 <DatePicker style={{width:90}}
                                     date={this.props.Fecha}
                                     showIcon={false}
                                     mode="date"
-                                    placeholder="fecha final"
+                                    placeholder={this.props.placeHolder}
                                     format="DD/MM/YYYY"
                                     confirmBtnText="Aceptar"
                                     cancelBtnText="Cancelar"
@@ -29,12 +29,13 @@ export default class campoFecha extends Component {
                                     customStyles={{
                                         dateInput: {
                                             borderWidth: 0,
-                                            borderBottomWidth: 0.5,
-                                            borderBottomColor: 'grey',
+                                            // borderBottomWidth: 0.5,
+                                            // borderBottomColor: 'grey',
                                             height: 30,
                                         },
                                         dateText: {
                                             fontSize: 14,
+                                            fontFamily: 'RobotoCondensed-Regular'
                                         },
                                         dateTouchBody: {
                                             height: 60,

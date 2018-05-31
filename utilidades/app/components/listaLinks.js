@@ -17,7 +17,7 @@ import * as estilos from '../constants/styles';
      
 const BtnLink = ({icono,texto,link}) => <TouchableOpacity style={{width:'46%',backgroundColor: estilos.Btn_backgroundColorUtilidades ,padding:10, borderRadius:5}} onPress={() => Linking.openURL(link)}>
                                           <View style={{alignItems:'center'}}><Image style={{marginTop: 5,resizeMode:'contain',width:estilos.IconoBoton_WIDTH, height:estilos.IconoBoton_HEIGHT}} source={icono}/></View>
-                                          <Text style={{color: 'white',textAlign:'center',fontSize:15, marginTop:-2, padding:1, fontFamily: "Merriweather-Black"}}>{texto}</Text>
+                                          <Text style={{color: 'white',textAlign:'center',fontSize:15, marginTop:0, padding:1, fontFamily: "Merriweather-Black"}}>{texto}</Text>
                                         </TouchableOpacity>  
 
 export default class listaLinks extends Component {

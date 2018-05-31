@@ -11,7 +11,7 @@
     "axios": "0.16.0",
     "d3": "4.7.4",
     "d3-shape": "1.0.6",
-    "native-base": "2.3.7",
+    "native-base": "2.3.10",
     "prop-types": "15.6.1",
     "react": "16.3.1",
     "react-native": "0.55.3",

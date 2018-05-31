@@ -1,4 +1,7 @@
 {
   "name": "utilidades",
-  "displayName": "utilidades"
+  "displayName": "utilidades",
+  "ios": {
+    "supportsTablet": true
+  }
 }

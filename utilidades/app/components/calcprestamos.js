@@ -160,26 +160,26 @@ export default class calcprestamos extends Component {
                     <View style={{flex:1}}>
                         <View style={{ borderColor:'#e3e1da', borderBottomWidth:1,borderRightWidth:1}}>
                             <Text style={styles.tituloUtilidades}>{'INTERÉS' + '\n' + 'ANUAL %'}</Text>
-                            <Item >
-                                <Input style={[styles.inputUtilidades,{fontFamily: "Roboto-Regular"}]}
+                            <Input style={[styles.inputNumerico,{minWidth: 40, marginTop: -3}]}
                                 keyboardType="numeric"
                                 maxLength={3}
                                 value={this.state.interes }
                                 onChangeText={interes => {this.onChange({"name": "interes", "value": interes});this.setState({interes:interes})}}
                                 />
-                            </Item>
                         </View>
-                        <View style={{borderColor:'#e3e1da', borderRightWidth:1, height:80}}>
-                            <Text style={[styles.tituloUtilidades,{marginTop:5}]}>{'CUOTA' + '\n' + 'MENSUAL'}</Text>
-                            <Text style={[styles.inputUtilidades,{marginTop:10,fontSize:14,fontFamily: "Roboto-Regular"}]}>{calcprestamo && fn.FormatoMoneda(calcprestamo.data.cmensual) + ' €'}</Text>
+                        <View style={{borderColor:'#e3e1da', borderRightWidth:1, height:80, marginTop:5}}>
+                            <Text style={[styles.tituloUtilidades,{}]}>{'CUOTA' + '\n' + 'MENSUAL'}</Text>
+                            <Input style={[styles.inputNumerico,{minWidth: 40, marginTop: -10}]}
+                                    editable={false}
+                                    value={calcprestamo && fn.FormatoMoneda(calcprestamo.data.cmensual) + ' €'}
+                                    />
                         </View>                
                     </View>
 
                     <View style={{flex:1}}>
                         <View style={{ borderColor:'#e3e1da', borderBottomWidth:1,borderRightWidth:1}}>
                             <Text style={styles.tituloUtilidades}>{'PLAZO' + '\n' + 'AÑOS'}</Text>
-                            <Item >
-                                <Input style={[styles.inputUtilidades,{fontFamily: "Roboto-Regular"}]}
+                            <Input style={[styles.inputNumerico,{minWidth: 40, marginTop: -3}]}
                                 keyboardType="numeric"
                                 maxLength={3}
                                 value={this.state.plazoAño}
@@ -189,19 +189,20 @@ export default class calcprestamos extends Component {
                                         this.setState({plazoAño:plazo, plazoMes:''})}
                                     }
                                 />
-                            </Item>
                         </View>
                         <View style={{borderColor:'#e3e1da', borderRightWidth:1, height:80}}>
                             <Text style={[styles.tituloUtilidades,{marginTop:5}]}>{'INTERÉS' + '\n' + 'TOTAL'}</Text>
-                            <Text style={[styles.inputUtilidades,{marginTop:10,fontSize:14,fontFamily: "Roboto-Bold"}]}>{calcprestamo && fn.FormatoMoneda(calcprestamo.data.interestotal)+ ' €'}</Text>
+                            <Input style={[styles.inputNumerico,{minWidth: 40, fontFamily: "RobotoCondensed-Bold"}]}
+                                    editable={false}
+                                    value={calcprestamo && fn.FormatoMoneda(calcprestamo.data.interestotal)+ ' €'}
+                                    />
                         </View>                
                     </View>
 
                     <View style={{flex:1}}>
                         <View style={{ borderColor:'#e3e1da', borderBottomWidth:1,}}>
                             <Text style={styles.tituloUtilidades}>{'PLAZO' + '\n' + 'MESES'}</Text>
-                            <Item >
-                                <Input style={[styles.inputUtilidades,{fontFamily: "Roboto-Regular"}]}
+                            <Input style={[styles.inputNumerico,{minWidth: 40, marginTop: -3}]}
                                 keyboardType="numeric"
                                 maxLength={3}
                                 value={this.state.plazoMes}
@@ -211,11 +212,13 @@ export default class calcprestamos extends Component {
                                         this.setState({plazoMes:plazo, plazoAño:''})}
                                     }
                                 />
-                            </Item>
                         </View>
                         <View style={{borderColor:'#e3e1da', height:80}}>
                             <Text style={[styles.tituloUtilidades,{marginTop:5}]}>{'PAGO' + '\n' + 'TOTAL'}</Text>
-                            <Text style={[styles.inputUtilidades,{marginTop:10,fontSize:14,fontFamily: "Roboto-Bold"}]}>{calcprestamo && fn.FormatoMoneda(calcprestamo.data.pagostotal)+ ' €'}</Text>
+                            <Input style={[styles.inputNumerico,{minWidth: 40, fontFamily: "RobotoCondensed-Bold"}]}
+                                    editable={false}
+                                    value={calcprestamo && fn.FormatoMoneda(calcprestamo.data.pagostotal)+ ' €'}
+                                    />
                         </View>                
                     </View>
         

@@ -82,13 +82,13 @@ export default {
     },
     inputNumerico:{
         textAlign:'center', 
-        borderBottomColor:'lightgray', 
-        borderBottomWidth:0.5, 
+        // borderBottomColor:'lightgray', 
+        borderBottomWidth:0, 
         height:40,
         width: '100%',
-        marginLeft:50,
-        marginRight:50,
-        fontFamily: 'RobotoCondensed-Regular'
+        // marginLeft:50,
+        // marginRight:50,
+        fontFamily: 'RobotoCondensed-Regular',
     },
     resultadoTexto:{ 
         fontSize: 16, 

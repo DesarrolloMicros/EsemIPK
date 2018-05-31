@@ -129,7 +129,7 @@ class Pie extends React.Component {
                 <TouchableWithoutFeedback key={index} onPress={() => this._onPieItemSelected(index)}>
                   <View style={{flexDirection:'column'}}>
                     <Text style={[styles.label, {color: '#5e4f2b'}]}>{this._label(item)}</Text>
-                    <Text style={[styles.label, {color: this._color(index), fontWeight: fontWeight}]}>{this._value(item)}%</Text>
+                    <Text style={[styles.label, {color: this._color(index), fontWeight: fontWeight, marginTop: -3}]}>{this._value(item)}%</Text>
                   </View>
                 </TouchableWithoutFeedback>
               );

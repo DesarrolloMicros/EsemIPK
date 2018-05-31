@@ -14,29 +14,16 @@ import * as estilos from '../constants/styles';
 
 import styles from '../css/app';
 
-/*
-const BtnLink = ({icono,texto,link}) => <TouchableOpacity style={{width:'48%',backgroundColor: '#403322',padding:10,borderRadius:5}} onPress={() => Linking.openURL(link)}>
-                                          <View style={{alignItems:'center'}}><Icon name={icono} style={{color:'rgba(255,255,255,0.95)',fontSize: 25}} /></View>
-                                          <Text style={{color:'#c08e11', textAlign:'center',fontSize: 15, marginTop:5}}>{texto}</Text>
-                                        </TouchableOpacity> 
-                                        
-const BtnPage = ({icono,texto, onItemSelected}) => <TouchableOpacity style={{width:'48%',backgroundColor: '#403322',padding:10,borderRadius:5}} onPress={() => onItemSelected()}>
-                                                    <View style={{alignItems:'center'}}><Icon name={icono} style={{color:'rgba(255,255,255,0.95)',fontSize: 25}} /></View>
-                                                    <Text style={{color:'#c08e11', textAlign:'center',fontSize: 15, marginTop:5}}>{texto}</Text>
-                                                  </TouchableOpacity>                                       
-                                        
-*/                                        
-
 const BtnLink = ({icono,texto,link}) => <TouchableOpacity style={{width:'46%',backgroundColor: estilos.Btn_backgroundColor ,padding:10, borderRadius:5}} onPress={() => Linking.openURL(link)}>
                                           <View style={{alignItems:'center'}}><Image style={{marginTop: 5,resizeMode:'contain',width:estilos.IconoBoton_WIDTH, height:estilos.IconoBoton_HEIGHT}} source={icono}/></View>
-                                          <Text style={{color: 'white',textAlign:'center',fontSize:15, marginTop:-2, padding:5, fontFamily: "Merriweather-Black"}}>{texto}</Text>
+                                          <Text style={{color: 'white',textAlign:'center',fontSize:15, marginTop:0, padding:5, fontFamily: "Merriweather-Black"}}>{texto}</Text>
                                         </TouchableOpacity>  
 
                                         
 
 const BtnPage = ({icono,texto, onItemSelected}) => <TouchableOpacity style={{width:'46%',backgroundColor: estilos.Btn_backgroundColor,padding:10,borderRadius:5}} onPress={() => onItemSelected()}>
                                                     <View style={{alignItems:'center'}}><Image style={{marginTop: 5,width:estilos.IconoBoton_WIDTH,height:estilos.IconoBoton_HEIGHT}} source={icono}/></View>
-                                                    <Text style={{color: 'white', textAlign:'center',fontSize: 15, marginTop:-2, padding:5, fontFamily: "Merriweather-Black"}}>{texto}</Text>
+                                                    <Text style={{color: 'white', textAlign:'center',fontSize: 15, marginTop:0, padding:5, fontFamily: "Merriweather-Black"}}>{texto}</Text>
                                                   </TouchableOpacity>
 
 var screen = Dimensions.get('window');
@@ -56,7 +43,7 @@ export default class inicio extends Component {
   }
 
   render() {
-    const txtAreaClientes = 'Area de' + ((this.state.width>this.state.height)? ' ' : '\n') + 'clientes';
+    const txtAreaClientes = 'Área de' + ((this.state.width>this.state.height)? ' ' : '\n') + 'clientes';
     const txtEnlacesExt = 'Enlaces' + ((this.state.width>this.state.height)? ' ' : '\n') + 'externos';
     return (
       <ScrollView style={{ backgroundColor: estilos.Fondo_PRINCIPAL}} onLayout={this._onLayout}>

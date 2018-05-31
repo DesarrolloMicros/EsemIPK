@@ -11,6 +11,7 @@ import * as pages from '../constants/navigation';
 
 const linkPortalEmpleado='https://portal.esem-empresas.net/portal'
 const linkAreaClientes='https://portal.esem-empresas.net/areacliente/Login.aspx'
+const linkEsem='http://www.esem-empresas.net/';
 
 export default class Menu extends Component {
     /*
@@ -26,9 +27,9 @@ export default class Menu extends Component {
     return (
         <ScrollView scrollsToTop={false} style={{fontSize: 20}} style={styles.menu} >
 
-            <TouchableHighlight onPress={() => this.props.onItemSelected(pages.INICIO)} style={styles.touchable} underlayColor={'#5c5042'}>
+            <TouchableHighlight onPress={() => Linking.openURL(linkEsem)} style={styles.touchable} underlayColor={'#5c5042'}>
                 <View style={styles.avatarContainer}>
-                    <Image style={styles.avatar} source={logo}/>
+                    <Image style={styles.avatar} source={logo} />
                     {/* <Text style={styles.name}>Asesoria ESEM</Text> */}
                 </View>
             </TouchableHighlight>
