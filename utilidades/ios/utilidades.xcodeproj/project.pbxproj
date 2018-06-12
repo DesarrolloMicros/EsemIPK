@@ -1435,7 +1435,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8F244BCAQR;
-				PRODUCT_BUNDLE_IDENTIFIER = "utilidades";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.esemempresas.utilidades";
 				PROVISIONING_PROFILE = "77a2ae10-1897-46fb-a648-09f20e933def";
 				PROVISIONING_PROFILE_SPECIFIER = "UtilidadesGP00";
 				VERSIONING_SYSTEM = "apple-generic";
