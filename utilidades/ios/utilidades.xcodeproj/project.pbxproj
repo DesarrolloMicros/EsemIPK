@@ -1439,7 +1439,7 @@
 				PROVISIONING_PROFILE = "77a2ae10-1897-46fb-a648-09f20e933def";
 				PROVISIONING_PROFILE_SPECIFIER = "UtilidadesGP00";
 				VERSIONING_SYSTEM = "apple-generic";
-				TARGETED_DEVICE_FAMILY = 1,2;
+				TARGETED_DEVICE_FAMILY = 2;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)\..\node_modules\react-native-vector-icons\RNVectorIconsManager",
