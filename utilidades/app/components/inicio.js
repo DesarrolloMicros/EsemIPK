@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, View, Text, ScrollView, Linking, TouchableOpacity,Image,Dimensions} from 'react-native';
+import { StyleSheet, View, Text, ScrollView, Linking, TouchableOpacity, Image, Dimensions, Platform} from 'react-native';
 import {
   Button ,
   Item,
@@ -21,7 +21,7 @@ const BtnLink = ({icono,texto,link}) => <TouchableOpacity style={{width:'46%',ba
 
                                         
 
-const BtnPage = ({icono,texto, onItemSelected}) => <TouchableOpacity style={{width:'46%',backgroundColor: estilos.Btn_backgroundColor,padding:10,borderRadius:5}} onPress={() => onItemSelected()}>
+const BtnPage = ({icono,texto, onItemSelected}) => <TouchableOpacity style={{width: (Platform.OS === 'ios' ? '92%' : '46%'),backgroundColor: estilos.Btn_backgroundColor,padding:10,borderRadius:5}} onPress={() => onItemSelected()}>
                                                     <View style={{alignItems:'center'}}><Image style={{marginTop: 5,width:estilos.IconoBoton_WIDTH,height:estilos.IconoBoton_HEIGHT}} source={icono}/></View>
                                                     <Text style={{color: 'white', textAlign:'center',fontSize: 15, marginTop:0, padding:5, fontFamily: "Merriweather-Black"}}>{texto}</Text>
                                                   </TouchableOpacity>
@@ -56,17 +56,24 @@ export default class inicio extends Component {
         <View style={{marginLeft:20, marginRight:20, marginTop:20}}>
 
           <View style={{height:210, justifyContent:'center', marginBottom:15}} >
-
-            <View style={{flexDirection:'row', justifyContent:'space-around', marginBottom:15, marginTop:80}}>
-              <BtnLink icono= {estilos.Ico_PortalEmpleado} texto='Portal del empleado' link='https://portal.esem-empresas.net/portal'/>
-              <BtnLink icono= {estilos.Ico_AreaClientes} texto={txtAreaClientes} link='https://portal.esem-empresas.net/areacliente/Login.aspx'/>
-            </View>
-
-            <View style={{flexDirection:'row', justifyContent:'space-around', marginBottom:80}}>
-              <BtnPage icono= {estilos.Ico_UtilidadesContables} texto='Utilidades contables' onItemSelected={() => this.props.onItemSelected(pages.UTILIDADES)}/>            
-              <BtnPage icono= {estilos.Ico_EnlacesExternos} texto={txtEnlacesExt} onItemSelected={() => this.props.onItemSelected(pages.ENLACES_EXT)}/>           
-            </View>
-
+            { Platform.OS === 'ios' ?
+              <View></View>
+              :
+              <View style={{flexDirection:'row', justifyContent:'space-around', marginBottom:15, marginTop:80}}>
+                <BtnLink icono= {estilos.Ico_PortalEmpleado} texto='Portal del empleado' link='https://portal.esem-empresas.net/portal'/>
+                <BtnLink icono= {estilos.Ico_AreaClientes} texto={txtAreaClientes} link='https://portal.esem-empresas.net/areacliente/Login.aspx'/>
+              </View>
+            }
+            { Platform.OS === 'ios' ?
+              <View style={{flexDirection:'row', justifyContent:'space-around', marginBottom:80}}>
+                <BtnPage icono= {estilos.Ico_UtilidadesContables} texto='Utilidades contables' onItemSelected={() => this.props.onItemSelected(pages.UTILIDADES)}/>
+              </View>
+              :
+              <View style={{flexDirection:'row', justifyContent:'space-around', marginBottom:80}}>
+                <BtnPage icono= {estilos.Ico_UtilidadesContables} texto='Utilidades contables' onItemSelected={() => this.props.onItemSelected(pages.UTILIDADES)}/>            
+                <BtnPage icono= {estilos.Ico_EnlacesExternos} texto={txtEnlacesExt} onItemSelected={() => this.props.onItemSelected(pages.ENLACES_EXT)}/>           
+              </View>
+            }
           </View>  
 
           <TouchableOpacity onPress={() => this.refs.modalSecretaria.open()} style={{ backgroundColor: estilos.Btn_Secretaria_backgroundColor, flex: 1, padding: 5, margin:5, alignItems: 'center', borderRadius:5, marginTop:15, marginBottom:15 }}>
