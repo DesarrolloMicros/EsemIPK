@@ -14,7 +14,7 @@ import * as estilos from '../constants/styles';
 
 import styles from '../css/app';
 
-const SO = 'android';
+const SO = 'ios';
 
 const BtnLink = ({icono,texto,link}) => <TouchableOpacity style={{width:'46%',backgroundColor: estilos.Btn_backgroundColor ,padding:10, borderRadius:5}} onPress={() => Linking.openURL(link)}>
                                           <View style={{alignItems:'center'}}><Image style={{marginTop: 5,resizeMode:'contain',width:estilos.IconoBoton_WIDTH, height:estilos.IconoBoton_HEIGHT}} source={icono}/></View>

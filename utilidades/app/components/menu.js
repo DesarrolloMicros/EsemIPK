@@ -23,7 +23,7 @@ export default class Menu extends Component {
   render() {
     const window = Dimensions.get('window');
     const logo = require('../resources/logo-e-w.png');
-    const SO = 'android';
+    const SO = 'ios';
     
     return (
         <ScrollView scrollsToTop={false} style={{fontSize: 20}} style={styles.menu} >
