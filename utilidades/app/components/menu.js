@@ -34,7 +34,7 @@ export default class Menu extends Component {
                     {/* <Text style={styles.name}>Asesoria ESEM</Text> */}
                 </View>
             </TouchableHighlight>
-            { Platform.OS === SO ? <View></View> :
+            { //Platform.OS === SO ? <View></View> :
             <TouchableHighlight onPress={() => Linking.openURL(linkPortalEmpleado)} style={styles.touchable} underlayColor={'#5c5042'}>
                 <View  style={[styles.itemMenu,{flexDirection:'row'}]}>                    
                     <View style={{ alignItems: 'center' }}><Image style={{resizeMode:'contain', width: estilos.IconoBoton_WIDTH, height: estilos.IconoBoton_HEIGHT }} source={estilos.Ico_PortalEmpleado} /></View>
@@ -42,7 +42,7 @@ export default class Menu extends Component {
                 </View>
             </TouchableHighlight>
             }
-            { Platform.OS === SO ? <View></View> :
+            { //Platform.OS === SO ? <View></View> :
             <TouchableHighlight onPress={() => Linking.openURL(linkAreaClientes)} style={styles.touchable} underlayColor={'#5c5042'}>
                 <View  style={[styles.itemMenu,{flexDirection:'row'}]}>
                     <View style={{ alignItems: 'center' }}><Image style={{ resizeMode:'contain',width: estilos.IconoBoton_WIDTH, height: estilos.IconoBoton_HEIGHT }} source={estilos.Ico_AreaClientes} /></View>
