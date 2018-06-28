@@ -4,7 +4,7 @@
 import React from 'react';
 import {
   ART,
-  LayoutAnimation, Platform
+  LayoutAnimation,
 } from 'react-native';
 
 const {
@@ -19,16 +19,16 @@ const d3 = {
   shape,
 };
 
-type Props = {
-  color: any,
-  d: () => any,
-};
+// type Props = {
+//   color: any,
+//   d: () => any,
+// };
 
 const AnimationDurationMs = 250;
 
 export default class AnimShape extends React.Component {
 
-  constructor(props: Props) {
+  constructor(props) {
     super(props);
     this.state = {
       path: '',
@@ -129,11 +129,7 @@ export default class AnimShape extends React.Component {
   }
 
   render() {
-    let path = this.state.path;
-    if (Platform.OS === 'ios'){
-      const graph = this.props.d();
-      path = graph.path;
-    }
+    const path = this.state.path;
     
     return (
        <Shape

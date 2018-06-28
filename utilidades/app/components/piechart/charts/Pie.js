@@ -10,6 +10,7 @@ import {
   LayoutAnimation,
   Dimensions,
   TouchableWithoutFeedback,
+  Platform,
 } from 'react-native';
 
 const {
@@ -35,24 +36,24 @@ import {
     scaleLinear
 } from 'd3-scale';
 
-type Props = {
-  height: number,
-  width: number,
-  pieWidth: number,
-  pieHeight: number,
-  colors: any,
-  onItemSelected: any
-};
+// type Props = {
+//   height: number,
+//   width: number,
+//   pieWidth: number,
+//   pieHeight: number,
+//   colors: any,
+//   onItemSelected: any
+// };
 
-type State = {
-  highlightedIndex: number,
-};
+// type State = {
+//   highlightedIndex: number,
+// };
 
 class Pie extends React.Component {
 
-  state: State;
+  // state: State;
 
-  constructor(props: Props) {
+  constructor(props) {
     super(props);
     this.state = { highlightedIndex: 0 };
     this._createPieChart = this._createPieChart.bind(this);
@@ -107,19 +108,36 @@ class Pie extends React.Component {
 
     return (
       <View width={this.props.width} height={this.props.height}>
-        <Surface width={this.props.width} height={this.props.height}>
+      <Surface width={this.props.width} height={this.props.height}>
+      {
+              (this.props.data.length > 0 ?
+          <Shape
+                d={this._createPieChart(1).path}
+                key={'pie_shape_' + 3}
+                stroke={this._color(1)}
+                fill={this._color(1)}
+                /> : <Shape/>)}
+        </Surface>
+        {/* <Surface width={this.props.width} height={this.props.height}>
            <Group x={x} y={y}>
            {
               this.props.data.map( (item, index) =>
-              (<AnimShape
+              ((Platform.OS === 'android' ?
+              <Shape
+                d={this._createPieChart(index).path}
+                key={'pie_shape_' + index}
+                stroke={this._color(index)}
+                fill={this._color(index)}
+                />
+              :<AnimShape
                  key={'pie_shape_' + index}
                  color={this._color(index)}
                  d={ () => this._createPieChart(index)}
-              />)
+              />))
               )
             }
            </Group>
-        </Surface>
+        </Surface> */}
         <View style={{position: 'absolute', top:margin, left: 2*margin + this.props.pieWidth}}>
           {
             this.props.data.map( (item, index) =>
