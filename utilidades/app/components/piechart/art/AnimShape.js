@@ -4,7 +4,7 @@
 import React from 'react';
 import {
   ART,
-  LayoutAnimation,
+  LayoutAnimation, Platform
 } from 'react-native';
 
 const {
@@ -129,7 +129,12 @@ export default class AnimShape extends React.Component {
   }
 
   render() {
-    const path = this.state.path;
+    let path = this.state.path;
+    if (Platform.OS === 'ios'){
+      const graph = this.props.d();
+      path = graph.path;
+    }
+    
     return (
        <Shape
          d={path}
