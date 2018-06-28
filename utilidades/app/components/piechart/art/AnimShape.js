@@ -19,11 +19,6 @@ const d3 = {
   shape,
 };
 
-// type Props = {
-//   color: any,
-//   d: () => any,
-// };
-
 const AnimationDurationMs = 250;
 
 export default class AnimShape extends React.Component {
